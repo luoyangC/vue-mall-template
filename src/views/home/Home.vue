@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import { getCitys } from "@/api";
 import { PullRefresh, Swipe, SwipeItem  } from "vant";
 export default {
   name: "home",
@@ -38,14 +37,9 @@ export default {
         this.isLoading = false
       }, 500);
     },
-    async getCitys() {
-      let data = await getCitys()
-      console.log(data)
-    }
   },
   mounted() {
     this.$store.dispatch('user/changeUserInfo', 'amor')
-    this.getCitys()
   }
 };
 </script>
