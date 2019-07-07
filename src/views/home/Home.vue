@@ -5,10 +5,6 @@
         <van-image height="200" fit="contain" :src="image"/>
       </van-swipe-item>
     </van-swipe>
-    <van-button class="home-btn" type="info" @click="handleBtn">{{$t('home.bottom', {name: 'Jelly'})}}</van-button>
-    <div>{{15261829198 | formatPhone}}</div>
-    
-    <router-link to="/page/about">关于</router-link>
   </van-pull-refresh>
 </template>
 
