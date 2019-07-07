@@ -2,7 +2,7 @@
  * @Author: luoyang 
  * @Date: 2019-06-28 09:59:48 
  * @Last Modified by: luoyang
- * @Last Modified time: 2019-07-03 14:53:02
+ * @Last Modified time: 2019-07-07 16:13:22
  */
 "use strict";
 
@@ -11,7 +11,7 @@ import axios from "axios";
 import { Notify } from 'vant';
 
 let config = {
-  baseURL: "https://www.luoyangc.cn/api/",
+  baseURL: "http://localhost:8080",
   timeout: 60 * 1000,
 };
 
@@ -28,8 +28,8 @@ _axios.interceptors.request.use(
 
 _axios.interceptors.response.use(
   response => {
-    if (response.data) {
-      return response.data
+    if (response.data.code === 0) {
+      return response.data.data
     } else {
       Notify(response.data.msg)
     }
