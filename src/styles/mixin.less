@@ -1,0 +1,58 @@
+//定位全屏
+.allcover() {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+//transform上下左右居中
+.ct {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//flex上下左右剧中
+.fct() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//定位上下居中
+.tb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+//flex上下剧中
+.ftb {
+  display: flex;
+  align-items: center;
+}
+
+//定位左右居中
+.lr {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//flex左右剧中
+.flr() {
+  display: flex;
+  justify-content: center;
+}
+
+.clear() {
+  &:after {
+      content: '.';
+      clear: both;
+      display: block;
+      width: 0;
+      height: 0;
+      visibility: hidden;
+  }
+}
