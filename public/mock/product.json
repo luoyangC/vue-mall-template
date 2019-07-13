@@ -6,105 +6,105 @@
         "id": 1,
         "title": "macbook pro 13寸 8G+512G",
         "image": "/static/images/macbook-1.jpg",
-        "original": 12999,
+        "origin": 12999,
         "present": 10999
       },
       {
         "id": 2,
         "title": "macbook pro 15寸 8G+256G",
         "image": "/static/images/macbook-2.jpg",
-        "original": 17999,
+        "origin": 17999,
         "present": 15999
       },
       {
         "id": 3,
         "title": "macbook pro 13寸 16G+1T",
         "image": "/static/images/macbook-3.jpg",
-        "original": 18999,
+        "origin": 18999,
         "present": 16999
       },
       {
         "id": 4,
         "title": "macbook pro 15寸 32G+1T",
         "image": "/static/images/macbook-1.jpg",
-        "original": 26999,
+        "origin": 26999,
         "present": 23999
       },
       {
         "id": 5,
         "title": "macbook pro 13寸 16G+1T",
         "image": "/static/images/macbook-4.jpg",
-        "original": 18999,
+        "origin": 18999,
         "present": 16999
       },
       {
         "id": 6,
         "title": "macbook pro 15寸 32G+1T",
         "image": "/static/images/macbook-3.jpg",
-        "original": 26999,
+        "origin": 26999,
         "present": 23999
       },
       {
         "id": 7,
         "title": "macbook pro 13寸 8G+512G",
         "image": "/static/images/macbook-2.jpg",
-        "original": 12999,
+        "origin": 12999,
         "present": 10999
       },
       {
         "id": 8,
         "title": "macbook pro 15寸 8G+256G",
         "image": "/static/images/macbook-1.jpg",
-        "original": 17999,
+        "origin": 17999,
         "present": 15999
       },
       {
         "id": 9,
         "title": "macbook pro 13寸 16G+1T",
         "image": "/static/images/macbook-2.jpg",
-        "original": 18999,
+        "origin": 18999,
         "present": 16999
       },
       {
         "id": 10,
         "title": "macbook pro 15寸 8G+256G",
         "image": "/static/images/macbook-3.jpg",
-        "original": 17999,
+        "origin": 17999,
         "present": 15999
       },
       {
         "id": 11,
         "title": "macbook pro 13寸 16G+1T",
         "image": "/static/images/macbook-4.jpg",
-        "original": 18999,
+        "origin": 18999,
         "present": 16999
       },
       {
         "id": 12,
         "title": "macbook pro 15寸 32G+1T",
         "image": "/static/images/macbook-2.jpg",
-        "original": 26999,
+        "origin": 26999,
         "present": 23999
       },
       {
         "id": 13,
         "title": "macbook pro 13寸 16G+1T",
         "image": "/static/images/macbook-4.jpg",
-        "original": 18999,
+        "origin": 18999,
         "present": 16999
       },
       {
         "id": 14,
         "title": "macbook pro 15寸 32G+1T",
         "image": "/static/images/macbook-1.jpg",
-        "original": 26999,
+        "origin": 26999,
         "present": 23999
       },
       {
         "id": 15,
         "title": "macbook pro 13寸 8G+512G",
         "image": "/static/images/macbook-2.jpg",
-        "original": 12999,
+        "origin": 12999,
         "present": 10999
       }
     ]

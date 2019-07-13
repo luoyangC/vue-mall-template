@@ -42,9 +42,6 @@ export default {
       }, 500);
     },
   },
-  mounted() {
-    this.$store.dispatch('user/changeUserInfo', 'amor')
-  }
 };
 </script>
 

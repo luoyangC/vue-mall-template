@@ -2,7 +2,7 @@
  * @Author: luoyang 
  * @Date: 2019-06-28 09:59:48 
  * @Last Modified by: luoyang
- * @Last Modified time: 2019-07-07 16:13:22
+ * @Last Modified time: 2019-07-13 13:37:49
  */
 "use strict";
 
@@ -48,6 +48,9 @@ _axios.interceptors.response.use(
     Notify(message)
   }
 );
+
+export const getAxios = () => { return _axios }
+
 
 Plugin.install = function(Vue) {
   Vue.axios = _axios;

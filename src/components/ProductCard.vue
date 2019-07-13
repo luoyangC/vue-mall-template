@@ -3,7 +3,7 @@
     <van-image lazy-load :src="item.image"/>
     <div class="product-title">{{item.title}}</div>
     <div class="product-price">
-      <s class="product-original">{{item.original}}</s>
+      <s class="product-original">{{item.origin}}</s>
       <span class="product-present">{{item.present}}</span>
     </div>
   </div>
