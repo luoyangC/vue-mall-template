@@ -22,3 +22,10 @@ export default {
   })
 }
 </script>
+
+<style lang="less" scoped>
+.van-swipe-item{
+  background: #fff;
+}
+</style>
+

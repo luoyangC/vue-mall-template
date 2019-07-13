@@ -1,5 +1,5 @@
 <template>
-  <van-grid :column-num="5" :border="false">
+  <van-grid class="category-list" :column-num="5" :border="false">
     <van-grid-item
       class="category-item"
       v-for="category in categorys"
@@ -35,6 +35,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.category-list{
+  padding-bottom: 8px;
+}
+
 .category-item {
   /deep/ .van-grid-item__content {
     padding: 8px
