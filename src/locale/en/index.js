@@ -1,9 +1,7 @@
 import layout from './layout';
-import home from "./home";
-import about from "./about";
+import user from "./user";
 
 export default{
   layout,
-  home,
-  about,
+  user,
 }

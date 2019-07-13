@@ -30,10 +30,6 @@ export default {
     isLoading: false,
   }),
   methods: {
-    // toast功能测试
-    handleBtn() {
-      this.$toast.success('提示')
-    },
     // 下拉刷新功能测试
     onRefresh() {
       setTimeout(() => {
