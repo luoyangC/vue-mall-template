@@ -6,6 +6,8 @@
     <banner-swipe></banner-swipe>
     <!-- 热门分类 -->
     <hot-category></hot-category>
+    <!-- 商品列表 -->
+    <product-list></product-list>
   </van-pull-refresh>
 </template>
 
@@ -14,13 +16,15 @@ import { PullRefresh } from "vant";
 import SearchBar from "./components/SearchBar"
 import BannerSwipe from "./components/BannerSwipe"
 import HotCategory from "./components/HotCategory"
+import ProductList from "./components/ProductList"
 export default {
   name: "home",
   components: {
     [PullRefresh.name]: PullRefresh,
     SearchBar,
     BannerSwipe,
-    HotCategory
+    HotCategory,
+    ProductList
   },
   data: () => ({
     isLoading: false,
