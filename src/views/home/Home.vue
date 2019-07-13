@@ -1,29 +1,25 @@
 <template>
   <van-pull-refresh class="home" v-model="isLoading" @refresh="onRefresh">
-    <van-swipe :autoplay="3000">
-      <van-swipe-item v-for="(image, index) in images" :key="index">
-        <van-image height="200" fit="contain" :src="image"/>
-      </van-swipe-item>
-    </van-swipe>
+    <!-- 搜索组件 -->
+    <search-bar></search-bar>
+    <!-- 轮播图组件 -->
+    <banner-swipe></banner-swipe>
   </van-pull-refresh>
 </template>
 
 <script>
-import { PullRefresh, Swipe, SwipeItem  } from "vant";
+import { PullRefresh } from "vant";
+import SearchBar from "./components/SearchBar"
+import BannerSwipe from "./components/BannerSwipe"
 export default {
   name: "home",
   components: {
     [PullRefresh.name]: PullRefresh,
-    [Swipe.name]: Swipe,
-    [SwipeItem.name]: SwipeItem,
+    SearchBar,
+    BannerSwipe,
   },
   data: () => ({
     isLoading: false,
-    images: [
-      'https://img.yzcdn.cn/vant/apple-2.jpg',
-      'https://img.yzcdn.cn/vant/apple-3.jpg',
-      'https://img.yzcdn.cn/vant/apple-4.jpg',
-    ]
   }),
   methods: {
     // toast功能测试
