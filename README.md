@@ -33,7 +33,7 @@
 
 以下是该项目的一些页面展示
 
-![index](/Users/luoyang/Pictures/index.png)
+![index](https://github.com/luoyangC/vue-template/tree/master/public/static/images/index.png)
 
 
 ## 安装项目依赖
