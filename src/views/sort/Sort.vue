@@ -29,7 +29,7 @@ export default {
       this.cities = data.cities
     }
   },
-  mounted() {
+  created() {
     this.getCities()
     console.log(this.cities)
   }

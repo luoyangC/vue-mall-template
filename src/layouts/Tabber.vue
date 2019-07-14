@@ -1,7 +1,7 @@
 <template>
 	<div class="layout-container">
     <!-- 页面 -->
-    <div class="d2-theme-container-main-body" flex-box="1">
+    <div>
       <keep-alive>
         <router-view/>
       </keep-alive>

@@ -13,3 +13,6 @@ export const getProducts = () => { return axios.get('/mock/product.json') }
 
 // 获取购物车列表
 export const getCarts = () => { return axios.get('/mock/cart.json') }
+
+// 获取商品详情
+export const getDetail = () => { return axios.get('/mock/detail.json') }

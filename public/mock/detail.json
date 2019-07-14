@@ -1,0 +1,67 @@
+{
+  "code": 0,
+  "data": {
+    "product": {
+      "banners": [
+        {
+          "id": 1,
+          "image": "/static/images/macbook-1.jpg"
+        },
+        {
+          "id": 2,
+          "image": "/static/images/macbook-2.jpg"
+        },
+        {
+          "id": 3,
+          "image": "/static/images/macbook-3.jpg"
+        },
+        {
+          "id": 4,
+          "image": "/static/images/macbook-4.jpg"
+        }
+      ],
+      "details": [
+        {
+          "id": 1,
+          "image": "/static/images/detail-1.webp"
+        },
+        {
+          "id": 2,
+          "image": "/static/images/detail-2.webp"
+        },
+        {
+          "id": 3,
+          "image": "/static/images/detail-3.webp"
+        },
+        {
+          "id": 4,
+          "image": "/static/images/detail-4.webp"
+        },
+        {
+          "id": 5,
+          "image": "/static/images/detail-5.webp"
+        },
+        {
+          "id": 6,
+          "image": "/static/images/detail-6.webp"
+        },
+        {
+          "id": 7,
+          "image": "/static/images/detail-7.webp"
+        },
+        {
+          "id": 8,
+          "image": "/static/images/detail-8.webp"
+        },
+        {
+          "id": 9,
+          "image": "/static/images/detail-9.webp"
+        },
+        {
+          "id": 10,
+          "image": "/static/images/detail-10.webp"
+        }
+      ]
+    }
+  }
+}

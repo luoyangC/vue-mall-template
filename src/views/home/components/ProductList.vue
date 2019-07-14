@@ -1,6 +1,6 @@
 <template>
   <van-grid class="product-list" :gutter="6" :column-num="3" :border="false">
-    <van-grid-item v-for="product in products" :key="product.id">
+    <van-grid-item v-for="product in products" :key="product.id" :to="`/page/product/${product.id}`">
       <product-card :item="product"></product-card>
     </van-grid-item>
   </van-grid>

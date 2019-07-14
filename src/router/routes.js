@@ -41,9 +41,15 @@ const frameOut = [
     component: Navbar,
     children: [
       {
+        path: 'product/:id',
+        name: 'product',
+        meta: { auth: 0, title: '商品详情' },
+        component: () => import('@/views/product/Product')
+      },
+      {
         path: 'about',
         name: 'about',
-        meta: { auth: 0 , title: '登录'},
+        meta: { auth: 0 , title: '关于'},
         component: () => import('@/views/about/About')
       }
     ]
