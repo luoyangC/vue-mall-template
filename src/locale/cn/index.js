@@ -1,7 +1,7 @@
-import layout from "./layout";
-import user from "./user";
+import layout from './layout'
+import user from './user'
 
-export default{
+export default {
   layout,
-  user,
+  user
 }

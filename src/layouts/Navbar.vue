@@ -2,13 +2,13 @@
   <div>
     <!-- 顶栏 -->
     <van-nav-bar :title="this.$route.meta.title" left-text="返回" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
-      <van-icon name="search" slot="right"/>
+      <van-icon slot="right" name="search" />
     </van-nav-bar>
     <!-- 页面 -->
     <div>
       <transition>
         <keep-alive>
-          <router-view/>
+          <router-view />
         </keep-alive>
       </transition>
     </div>
@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import { NavBar } from 'vant';
+import { NavBar } from 'vant'
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   components: {
     [NavBar.name]: NavBar
   },
@@ -27,7 +27,7 @@ export default {
       this.$router.go(-1)
     },
     onClickRight() {
-      this.$toast('搜索');
+      this.$toast('搜索')
     }
   }
 }

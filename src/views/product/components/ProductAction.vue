@@ -9,12 +9,12 @@
 </template>
 
 <script>
-import { GoodsAction, GoodsActionIcon, GoodsActionButton } from "vant";
+import { GoodsAction, GoodsActionIcon, GoodsActionButton } from 'vant'
 export default {
   components: {
     [GoodsAction.name]: GoodsAction,
     [GoodsActionIcon.name]: GoodsActionIcon,
     [GoodsActionButton.name]: GoodsActionButton
   }
-};
+}
 </script>

@@ -1,9 +1,9 @@
 <template>
   <van-grid class="category-list" :column-num="5" :border="false">
     <van-grid-item
-      class="category-item"
       v-for="category in categorys"
       :key="category.id"
+      class="category-item"
       :icon="category.image"
       :text="category.title"
     />
@@ -11,25 +11,25 @@
 </template>
 
 <script>
-import { Grid, GridItem } from 'vant';
-import { getCategorys } from '@/api';
+import { Grid, GridItem } from 'vant'
+import { getCategorys } from '@/api'
 export default {
   components: {
     [Grid.name]: Grid,
-    [GridItem.name]: GridItem,
+    [GridItem.name]: GridItem
   },
   data: () => ({
     categorys: []
   }),
+  mounted() {
+    this.getCategorys()
+  },
   methods: {
     // 获取分类数据
     async getCategorys() {
-      let data = await getCategorys()
+      const data = await getCategorys()
       this.categorys = data.categorys
     }
-  },
-  mounted() {
-    this.getCategorys()
   }
 }
 </script>

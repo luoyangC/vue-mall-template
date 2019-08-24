@@ -10,7 +10,7 @@ const frameIn = [
       {
         path: 'home',
         name: 'home',
-        meta: { auth: 0 ,title: '首页' },
+        meta: { auth: 0, title: '首页' },
         component: () => import('@/views//home/Home')
       },
       {
@@ -49,7 +49,7 @@ const frameOut = [
       {
         path: 'about',
         name: 'about',
-        meta: { auth: 0 , title: '关于'},
+        meta: { auth: 0, title: '关于' },
         component: () => import('@/views/about/About')
       }
     ]

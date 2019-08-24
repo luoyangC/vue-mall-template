@@ -1,30 +1,30 @@
 /*
- * @Author: luoyang 
- * @Date: 2019-06-28 09:59:48 
+ * @Author: luoyang
+ * @Date: 2019-06-28 09:59:48
  * @Last Modified by: luoyang
- * @Last Modified time: 2019-07-13 13:37:49
+ * @Last Modified time: 2019-08-24 12:00:59
  */
-"use strict";
+'use strict'
 
-import Vue from 'vue';
-import axios from "axios";
-import { Notify } from 'vant';
+import Vue from 'vue'
+import axios from 'axios'
+import { Notify } from 'vant'
 
-let config = {
-  baseURL: "http://localhost:8080",
-  timeout: 60 * 1000,
-};
+const config = {
+  baseURL: 'http://localhost:8080',
+  timeout: 60 * 1000
+}
 
-const _axios = axios.create(config);
+const _axios = axios.create(config)
 
 _axios.interceptors.request.use(
   config => {
-    return config;
+    return config
   },
   error => {
-    return Promise.reject(error);
+    return Promise.reject(error)
   }
-);
+)
 
 _axios.interceptors.response.use(
   response => {
@@ -38,37 +38,36 @@ _axios.interceptors.response.use(
     const status = error.response.status
     switch (status) {
       case 400:
-        window.console.log("请求参数错误")
-        break;
+        window.console.log('请求参数错误')
+        break
       default:
         window.console.log(status)
-        break;
+        break
     }
-    const message = error.response.data.msg || "未知错误"
+    const message = error.response.data.msg || '未知错误'
     Notify(message)
   }
-);
+)
 
 export const getAxios = () => { return _axios }
 
-
 Plugin.install = function(Vue) {
-  Vue.axios = _axios;
-  window.axios = _axios;
+  Vue.axios = _axios
+  window.axios = _axios
   Object.defineProperties(Vue.prototype, {
     axios: {
       get() {
-        return _axios;
+        return _axios
       }
     },
     $axios: {
       get() {
-        return _axios;
+        return _axios
       }
-    },
-  });
-};
+    }
+  })
+}
 
 Vue.use(Plugin)
 
-export default Plugin;
+export default Plugin

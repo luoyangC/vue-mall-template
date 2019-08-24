@@ -1,6 +1,6 @@
 <template>
   <div>
-    <cart-list></cart-list>
+    <cart-list />
     <van-submit-bar :price="totalAmount" button-text="提交订单">
       <van-checkbox :value="checkAll" @click.prevent="handleCheckAll">全选</van-checkbox>
     </van-submit-bar>
@@ -8,19 +8,19 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
-import { SubmitBar, Checkbox } from 'vant';
-import CartList from "./components/CartList"
+import { mapGetters } from 'vuex'
+import { SubmitBar, Checkbox } from 'vant'
+import CartList from './components/CartList'
 export default {
   components: {
     [SubmitBar.name]: SubmitBar,
-    [Checkbox.name] : Checkbox,
+    [Checkbox.name]: Checkbox,
     CartList
   },
   computed: {
     ...mapGetters([
       'checked',
-      'checkAll',
+      'checkAll'
     ]),
     totalAmount() {
       let total = 0
@@ -30,13 +30,13 @@ export default {
       return total
     }
   },
+  beforeCreate() {
+    this.$store.dispatch('cart/setCarts')
+  },
   methods: {
     handleCheckAll() {
       this.$store.dispatch('cart/setCheckAll')
     }
-  },
-  beforeCreate() {
-    this.$store.dispatch('cart/setCarts')
   }
 }
 </script>

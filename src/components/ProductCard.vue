@@ -1,10 +1,10 @@
 <template>
   <div class="product-card">
-    <van-image lazy-load :src="item.image"/>
-    <div class="product-title">{{item.title}}</div>
+    <van-image lazy-load :src="item.image" />
+    <div class="product-title">{{ item.title }}</div>
     <div class="product-price">
-      <s class="product-original">{{item.origin}}</s>
-      <span class="product-present">{{item.present}}</span>
+      <s class="product-original">{{ item.origin }}</s>
+      <span class="product-present">{{ item.present }}</span>
     </div>
   </div>
 </template>
@@ -12,7 +12,10 @@
 <script>
 export default {
   props: {
-    item: Object
+    item: {
+      type: Object,
+      default: () => []
+    }
   }
 }
 </script>

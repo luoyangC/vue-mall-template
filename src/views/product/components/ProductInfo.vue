@@ -1,17 +1,20 @@
 <template>
   <div class="info">
     <div class="price">
-      <span class="present">￥{{info.present}}</span>
-      <s class="origin">￥{{info.origin}}</s>
+      <span class="present">￥{{ info.present }}</span>
+      <s class="origin">￥{{ info.origin }}</s>
     </div>
-    <div>{{info.title}}</div>
+    <div>{{ info.title }}</div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    info: Object
+    info: {
+      type: Object,
+      default: () => {}
+    }
   }
 }
 </script>

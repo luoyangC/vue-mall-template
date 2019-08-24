@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'
 import filters from '@/filters'
 
 Object.keys(filters).forEach(filterName => {

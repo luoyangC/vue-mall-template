@@ -1,13 +1,13 @@
 <template>
   <van-checkbox-group v-model="result">
     <van-cell-group>
-      <van-cell v-for="(item, index) in carts" clickable :key="item.id" @click="toggle(index)">
-        <van-checkbox :name="item" ref="checkboxes" slot="icon"/>
+      <van-cell v-for="(item, index) in carts" :key="item.id" clickable @click="toggle(index)">
+        <van-checkbox ref="checkboxes" slot="icon" :name="item" />
         <van-card
           :num="item.nums"
           :price="item.present"
           :origin-price="item.origin"
-          :desc="item.modle"  
+          :desc="item.modle"
           :title="item.title"
           :thumb="item.image"
         />
@@ -18,7 +18,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import { Checkbox, CheckboxGroup, Cell, CellGroup, Card } from 'vant';
+import { Checkbox, CheckboxGroup, Cell, CellGroup, Card } from 'vant'
 export default {
   components: {
     [Checkbox.name]: Checkbox,
@@ -28,14 +28,14 @@ export default {
     [Card.name]: Card
   },
   data: () => ({
-    result: [],
+    result: []
   }),
   computed: {
     ...mapGetters([
       'carts',
       'checked',
       'checkAll'
-    ]),
+    ])
   },
   watch: {
     result(val) {
@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     toggle(index) {
-      this.$refs.checkboxes[index].toggle();
+      this.$refs.checkboxes[index].toggle()
     }
   }
 }

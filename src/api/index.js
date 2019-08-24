@@ -1,4 +1,4 @@
-import { getAxios } from "@/plugins/axios"
+import { getAxios } from '@/plugins/axios'
 
 const axios = getAxios()
 

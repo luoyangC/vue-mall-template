@@ -1,24 +1,24 @@
 <template>
-  <van-pull-refresh class="home" v-model="isLoading" @refresh="onRefresh">
+  <van-pull-refresh v-model="isLoading" class="home" @refresh="onRefresh">
     <!-- 搜索组件 -->
-    <search-bar></search-bar>
+    <search-bar />
     <!-- 轮播图组件 -->
-    <banner-swipe></banner-swipe>
+    <banner-swipe />
     <!-- 热门分类 -->
-    <hot-category></hot-category>
+    <hot-category />
     <!-- 商品列表 -->
-    <product-list></product-list>
+    <product-list />
   </van-pull-refresh>
 </template>
 
 <script>
-import { PullRefresh } from "vant";
-import SearchBar from "./components/SearchBar"
-import BannerSwipe from "./components/BannerSwipe"
-import HotCategory from "./components/HotCategory"
-import ProductList from "./components/ProductList"
+import { PullRefresh } from 'vant'
+import SearchBar from './components/SearchBar'
+import BannerSwipe from './components/BannerSwipe'
+import HotCategory from './components/HotCategory'
+import ProductList from './components/ProductList'
 export default {
-  name: "home",
+  name: 'Home',
   components: {
     [PullRefresh.name]: PullRefresh,
     SearchBar,
@@ -27,7 +27,7 @@ export default {
     ProductList
   },
   data: () => ({
-    isLoading: false,
+    isLoading: false
   }),
   methods: {
     // 下拉刷新功能测试
@@ -35,11 +35,8 @@ export default {
       setTimeout(() => {
         this.$toast.success('刷新成功')
         this.isLoading = false
-      }, 500);
-    },
-  },
-};
+      }, 500)
+    }
+  }
+}
 </script>
-
-<style lang="less">
-</style>

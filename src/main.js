@@ -6,9 +6,9 @@ import router from './router'
 
 Vue.config.productionTip = false
 
-import "@/plugins/vant"
-import "@/plugins/axios"
-import "@/plugins/filters"
+import '@/plugins/vant'
+import '@/plugins/axios'
+import '@/plugins/filters'
 
 new Vue({
   store,
