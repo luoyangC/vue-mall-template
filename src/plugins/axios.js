@@ -2,7 +2,7 @@
  * @Author: luoyang
  * @Date: 2019-06-28 09:59:48
  * @Last Modified by: luoyang
- * @Last Modified time: 2019-08-24 12:00:59
+ * @Last Modified time: 2019-08-27 10:53:36
  */
 'use strict'
 
@@ -28,8 +28,8 @@ _axios.interceptors.request.use(
 
 _axios.interceptors.response.use(
   response => {
-    if (response.data.code === 0) {
-      return response.data.data
+    if (response.data.code === 20000) {
+      return response.data
     } else {
       Notify(response.data.msg)
     }

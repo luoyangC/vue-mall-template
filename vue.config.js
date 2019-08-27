@@ -1,7 +1,7 @@
-const path = require('path');
-const autoprefixer = require('autoprefixer');
-const pxtoviewport = require('postcss-px-to-viewport');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const path = require('path')
+const autoprefixer = require('autoprefixer')
+const pxtoviewport = require('postcss-px-to-viewport')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -12,8 +12,8 @@ function addStyleResource(rule) {
     .loader('style-resources-loader')
     .options({
       patterns: [
-        path.resolve(__dirname, 'src/styles/index.less'),
-      ],
+        path.resolve(__dirname, 'src/styles/index.less')
+      ]
     })
 }
 
@@ -34,12 +34,32 @@ module.exports = {
   // 关闭ESLint
   lintOnSave: false,
 
+  devServer: {
+    open: true,
+    overlay: {
+      warnings: false,
+      errors: true
+    },
+    proxy: {
+      // 配置代理服务器
+      [process.env.VUE_APP_BASE_API]: {
+        target: `http://localhost:8080/mock`,
+        changeOrigin: true,
+        pathRewrite: {
+          ['^' + process.env.VUE_APP_BASE_API]: ''
+        }
+      }
+    },
+    // 加载mock服务器
+    after: require('./mock/mock-server.js')
+  },
+
   chainWebpack: config => {
     // 自定义别名
     config.resolve.alias
       .set('@', resolve('src'))
       .set('assets', resolve('src/assets'))
-      .set('components', resolve('src/components'));
+      .set('components', resolve('src/components'))
     // 全局引入less变量、方法等
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
     types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
@@ -67,8 +87,8 @@ module.exports = {
           blue: '#1989fa',
           gray: '#c9c9c9',
           green: '#07c160',
-          orange: '#ff976a',
-        },
+          orange: '#ff976a'
+        }
       },
       postcss: {
         plugins: [
@@ -81,4 +101,4 @@ module.exports = {
       }
     }
   }
-};
+}

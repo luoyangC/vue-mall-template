@@ -27,8 +27,8 @@ export default {
   methods: {
     // 获取分类数据
     async getCategorys() {
-      const data = await getCategorys()
-      this.categorys = data.categorys
+      const { data } = await getCategorys()
+      this.categorys = data
     }
   }
 }

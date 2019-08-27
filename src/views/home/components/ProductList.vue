@@ -24,8 +24,8 @@ export default {
   },
   methods: {
     async getProducts() {
-      const data = await getProducts()
-      this.products = data.products
+      const { data } = await getProducts()
+      this.products = data
     }
   }
 }

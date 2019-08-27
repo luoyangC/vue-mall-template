@@ -21,8 +21,8 @@ const mutations = {
 const actions = {
   // 获取购物车列表
   async setCarts({ commit }) {
-    const data = await getCarts()
-    commit('SET_CARTS', data.carts)
+    const { data } = await getCarts()
+    commit('SET_CARTS', data)
   },
   // 购物车选中
   setChecked({ state, commit }, checked) {
