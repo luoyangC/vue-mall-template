@@ -2,13 +2,14 @@
  * @Author: luoyang
  * @Date: 2019-06-28 09:59:48
  * @Last Modified by: luoyang
- * @Last Modified time: 2019-08-27 10:53:36
+ * @Last Modified time: 2019-08-27 15:24:53
  */
 'use strict'
 
 import Vue from 'vue'
 import axios from 'axios'
 import { Notify } from 'vant'
+import { getToken } from '@/utils/auth'
 
 const config = {
   baseURL: 'http://localhost:8080',
@@ -19,6 +20,8 @@ const _axios = axios.create(config)
 
 _axios.interceptors.request.use(
   config => {
+    const token = getToken()
+    if (token) config.headers['token'] = token
     return config
   },
   error => {
@@ -31,7 +34,8 @@ _axios.interceptors.response.use(
     if (response.data.code === 20000) {
       return response.data
     } else {
-      Notify(response.data.msg)
+      console.log(response.data.message)
+      return response.data
     }
   },
   error => {
@@ -44,7 +48,7 @@ _axios.interceptors.response.use(
         window.console.log(status)
         break
     }
-    const message = error.response.data.msg || '未知错误'
+    const message = error.response.data.message || '未知错误'
     Notify(message)
   }
 )

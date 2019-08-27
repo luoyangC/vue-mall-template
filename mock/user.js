@@ -18,19 +18,21 @@ export default [
     url: '/user/info\.*',
     type: 'get',
     response: config => {
-      const { token } = config.query
-      const username = token.split('-')[0]
+      const { token } = config.headers
       // mock error
-      if (!username) {
+      if (!token) {
         return {
           code: 50008,
-          message: 'Login failed, unable to get user details.'
+          message: '未登录'
         }
-      }
-      return {
-        code: 20000,
-        data: {
-          name: username
+      } else {
+        const username = token.split('-')[0]
+        return {
+          code: 20000,
+          data: {
+            name: username,
+            avatar: 'https://luoyangc.oss-cn-shanghai.aliyuncs.com/media/image/icons/xigua.png'
+          }
         }
       }
     }

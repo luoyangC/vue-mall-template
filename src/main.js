@@ -9,6 +9,7 @@ Vue.config.productionTip = false
 import '@/plugins/vant'
 import '@/plugins/axios'
 import '@/plugins/filters'
+import '@/utils/permission.js'
 
 import { mockXHR } from '../mock' // mock 数据
 if (process.env.NODE_ENV === 'production') {

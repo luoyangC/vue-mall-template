@@ -22,7 +22,7 @@ const frameIn = [
       {
         path: 'cart',
         name: 'cart',
-        meta: { auth: 0, title: '购物车' },
+        meta: { auth: 1, title: '购物车' },
         component: () => import('@/views/cart/Cart')
       },
       {
@@ -40,6 +40,12 @@ const frameOut = [
     path: '/page',
     component: Navbar,
     children: [
+      {
+        path: 'login',
+        name: 'Login',
+        meta: { auth: 0, title: '用户登录' },
+        component: () => import('@/views/login/Login')
+      },
       {
         path: 'product/:id',
         name: 'product',
