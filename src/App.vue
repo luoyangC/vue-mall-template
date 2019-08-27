@@ -7,8 +7,9 @@
 <script>
 export default {
   name: 'App',
-  created() {
+  beforeCreate() {
     this.$store.dispatch('user/setInfo')
+    this.$store.dispatch('cart/setCarts')
   }
 }
 </script>

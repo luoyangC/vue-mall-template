@@ -1,10 +1,10 @@
 <template>
   <div class="info">
     <div class="price">
-      <span class="present">￥{{ info.present }}</span>
-      <s class="origin">￥{{ info.origin }}</s>
+      <span class="present">￥{{ info.currentPrice }}</span>
+      <s class="origin">￥{{ info.originalPrice }}</s>
     </div>
-    <div>{{ info.title }}</div>
+    <div>{{ info.name }}</div>
   </div>
 </template>
 

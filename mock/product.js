@@ -1,50 +1,63 @@
 import Mock from 'mockjs'
 
 const List = []
-const count = 100
+const count = 30
 
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
     id: '@increment',
     name: '@title(2, 3)',
-    'freight|0-20': 1,
-    pickUp: 1,
-    invoice: 1,
-    returns: 1,
-    'brand|1-6': 1,
-    'isShelf|0-1': 1,
-    province: '@province',
-    city: '@city',
-    area: '@county',
-    'originalPrice|1-100': 1,
-    'currentPrice|1-100': 1,
-    'settlementPrice|1-100': 1,
-    'sales|100-10000': 100,
-    secondCategory: 1,
-    primaryCategory: 1,
-    label: '标签一,标签二',
-    detailedDescription: '商品详情',
+    brand: '@title(1， 2)',
+    'originalPrice|1000-10000': 1,
+    'currentPrice|100-1000': 1,
     'merchandisePictures|1-5': [
       {
         'id|+1': 1,
         image: 'https://luoyangc.oss-cn-shanghai.aliyuncs.com/media/image/icons/xigua.png'
       }
     ],
-    'merchandiseSon|1-10': [
+    detailedDescription: [
       {
-        'id|+1': 1,
-        'attributes': '颜色:白色,尺寸:xs',
-        'isShelf|0-1': 1,
-        'inventory|10-1000': 100,
-        'originalPrice|1-100': 1,
-        'currentPrice|1-100': 1,
-        'settlementPrice|1-100': 1,
-        'sales|100-10000': 100,
-        shelfDate: '@datetime',
-        picture: 'https://luoyangc.oss-cn-shanghai.aliyuncs.com/media/image/icons/xigua.png'
+        'id': 1,
+        'image': '/static/images/detail-1.webp'
+      },
+      {
+        'id': 2,
+        'image': '/static/images/detail-2.webp'
+      },
+      {
+        'id': 3,
+        'image': '/static/images/detail-3.webp'
+      },
+      {
+        'id': 4,
+        'image': '/static/images/detail-4.webp'
+      },
+      {
+        'id': 5,
+        'image': '/static/images/detail-5.webp'
+      },
+      {
+        'id': 6,
+        'image': '/static/images/detail-6.webp'
+      },
+      {
+        'id': 7,
+        'image': '/static/images/detail-7.webp'
+      },
+      {
+        'id': 8,
+        'image': '/static/images/detail-8.webp'
+      },
+      {
+        'id': 9,
+        'image': '/static/images/detail-9.webp'
+      },
+      {
+        'id': 10,
+        'image': '/static/images/detail-10.webp'
       }
-    ],
-    shelfDate: '@datetime'
+    ]
   }))
 }
 
