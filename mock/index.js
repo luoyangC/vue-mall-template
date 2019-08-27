@@ -1,11 +1,13 @@
 import Mock from 'mockjs'
 import { param2Obj } from '../src/utils'
 
+import user from './user'
 import cart from './cart'
 import product from './product'
 import category from './category'
 
 const mocks = [
+  ...user,
   ...cart,
   ...product,
   ...category

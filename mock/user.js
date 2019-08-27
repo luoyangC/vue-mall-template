@@ -1,27 +1,3 @@
-const tokens = {
-  admin: {
-    token: 'admin-token'
-  },
-  super: {
-    token: 'super-token'
-  }
-}
-
-const users = {
-  'admin-token': {
-    roles: ['admin'],
-    introduction: 'I am an super administrator',
-    avatar: '/static/images/avatar/default.gif',
-    name: 'Merchant Admin'
-  },
-  'super-token': {
-    roles: ['super'],
-    introduction: 'I am an super',
-    avatar: '/static/images/avatar/default.gif',
-    name: 'Super Admin'
-  }
-}
-
 export default [
   // user login
   {
@@ -29,16 +5,7 @@ export default [
     type: 'post',
     response: config => {
       const { username } = config.body
-      const token = tokens[username]
-
-      // mock error
-      if (!token) {
-        return {
-          code: 60204,
-          message: 'Account and password are incorrect.'
-        }
-      }
-
+      const token = `${username}-token`
       return {
         code: 20000,
         data: token
@@ -52,19 +19,19 @@ export default [
     type: 'get',
     response: config => {
       const { token } = config.query
-      const info = users[token]
-
+      const username = token.split('-')[0]
       // mock error
-      if (!info) {
+      if (!username) {
         return {
           code: 50008,
           message: 'Login failed, unable to get user details.'
         }
       }
-
       return {
         code: 20000,
-        data: info
+        data: {
+          name: username
+        }
       }
     }
   },
