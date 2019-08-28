@@ -1,4 +1,4 @@
-import { getCarts } from '@/api'
+import { getCarts, addCarts } from '@/api'
 
 const state = {
   carts: [],
@@ -23,6 +23,12 @@ const actions = {
   async setCarts({ commit }) {
     const { data } = await getCarts()
     commit('SET_CARTS', data)
+  },
+  // 添加到购物车
+  async addCarts({ commit }) {
+    const { data } = await addCarts()
+    console.log(data)
+    return data
   },
   // 购物车选中
   setChecked({ state, commit }, checked) {

@@ -14,6 +14,9 @@ export const getProductById = (id) => { return axios.get('/dev-api/product/detai
 // 获取购物车列表
 export const getCarts = () => { return axios.get('/dev-api/carts') }
 
+// 添加到购物车
+export const addCarts = (id) => { return axios.post('/dev-api/cart', id) }
+
 // 用户登录
 export const userLogin = (data) => { return axios.post('/dev-api/user/login', data) }
 
