@@ -11,11 +11,14 @@ export const getProducts = () => { return axios.get('/dev-api/product/list') }
 // 获取商品详情
 export const getProductById = (id) => { return axios.get('/dev-api/product/detail', { params: { id }}) }
 
+// 获取规格商品
+export const getProductSku = (id) => { return axios.get('dev-api/product/sku', { params: { id }}) }
+
 // 获取购物车列表
 export const getCarts = () => { return axios.get('/dev-api/carts') }
 
 // 添加到购物车
-export const addCarts = (id) => { return axios.post('/dev-api/cart', id) }
+export const addCarts = (data) => { return axios.post('/dev-api/cart', data) }
 
 // 用户登录
 export const userLogin = (data) => { return axios.post('/dev-api/user/login', data) }

@@ -1,6 +1,6 @@
 <template>
   <van-checkbox-group v-model="result">
-    <van-cell-group>
+    <van-cell-group style="margin-bottom: 100px;">
       <van-cell v-for="(item, index) in carts" :key="item.id" clickable @click="toggle(index)">
         <van-checkbox ref="checkboxes" slot="icon" :name="item" />
         <van-card

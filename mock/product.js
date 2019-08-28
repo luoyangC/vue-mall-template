@@ -61,6 +61,33 @@ for (let i = 0; i < count; i++) {
   }))
 }
 
+const sku = [
+  {
+    attributes: '颜色:白色,尺寸:m',
+    currentPrice: 18.88,
+    id: '22',
+    inventory: 220,
+    name: 'test',
+    originalPrice: 220,
+    picture: 'https://images.zhihuimingxing.com/Fmd9K7pUMycwut4kZbny70vrge5d',
+    sales: 0,
+    settlementPrice: 220,
+    updateDate: '2019-08-13T05:42:56.000+0000'
+  },
+  {
+    attributes: '颜色:黑色,尺寸:s',
+    currentPrice: 9.99,
+    id: '33',
+    inventory: 10,
+    name: 'test',
+    originalPrice: 9,
+    picture: 'https://images.zhihuimingxing.com/FgD6j9fbLclWZ1ih5eFKFCvsrFsz',
+    sales: 0,
+    settlementPrice: 101,
+    updateDate: '2019-08-13T05:55:30.000+0000'
+  }
+]
+
 export default [
   {
     url: '/product/list',
@@ -84,6 +111,16 @@ export default [
             data: item
           }
         }
+      }
+    }
+  },
+  {
+    url: '/product/sku',
+    type: 'get',
+    response: config => {
+      return {
+        code: 20000,
+        data: sku
       }
     }
   }

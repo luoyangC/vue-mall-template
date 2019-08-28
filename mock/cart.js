@@ -45,9 +45,12 @@ export default [
     url: '/cart',
     type: 'post',
     response: config => {
+      const cart = config.body
+      carts.push(cart)
       return {
         code: 20000,
-        message: '添加成功'
+        message: '添加成功',
+        data: cart
       }
     }
   }

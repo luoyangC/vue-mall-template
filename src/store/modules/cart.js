@@ -7,14 +7,17 @@ const state = {
 }
 
 const mutations = {
-  SET_CARTS: (state, carts) => {
+  SET_CARTS(state, carts) {
     state.carts = carts
   },
-  SET_CHECKED: (state, checked) => {
+  SET_CHECKED(state, checked) {
     state.checked = checked
   },
-  SET_CHECKALL: (state, checkAll) => {
+  SET_CHECKALL(state, checkAll) {
     state.checkAll = checkAll
+  },
+  ADD_CART(state, cart) {
+    state.carts.push(cart)
   }
 }
 
@@ -25,9 +28,9 @@ const actions = {
     commit('SET_CARTS', data)
   },
   // 添加到购物车
-  async addCarts({ commit }) {
-    const { data } = await addCarts()
-    console.log(data)
+  async addCarts({ commit }, skuData) {
+    const { data } = await addCarts(skuData)
+    commit('ADD_CART', data)
     return data
   },
   // 购物车选中

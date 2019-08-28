@@ -4,7 +4,7 @@
     <van-goods-action-icon :info="carts.length" to="/cart" icon="cart-o" text="购物车" />
     <van-goods-action-icon icon="shop-o" text="店铺" />
     <van-goods-action-button type="warning" text="加入购物车" @click="handleToCart" />
-    <van-goods-action-button type="danger" text="立即购买" />
+    <van-goods-action-button type="danger" text="立即购买" @click="handleToBuy" />
   </van-goods-action>
 </template>
 
@@ -23,9 +23,11 @@ export default {
     ])
   },
   methods: {
-    async handleToCart() { // 添加到购物车
-      const res = await this.$store.dispatch('cart/addCart')
-      console.log(res)
+    async handleToCart() {
+      this.$emit('open-sku', 'cart')
+    },
+    async handleToBuy() {
+      this.$emit('open-sku', 'buy')
     }
   }
 }
