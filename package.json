@@ -1,47 +1,49 @@
 {
-  "name": "vue-template",
+  "name": "vue-mall-template",
   "version": "0.1.0",
+  "description": "vue mall template",
+  "author": "luoyangC",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
-  "dependencies": {
-    "axios": "^0.19.0",
-    "core-js": "^2.6.5",
-    "dayjs": "^1.8.14",
-    "js-cookie": "^2.2.1",
-    "vant": "^2.0.3",
-    "vue": "^2.6.10",
-    "vue-i18n": "^8.11.2",
-    "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+  "lint-staged": {
+    "*.{js,vue}": "eslint"
   },
-  "devDependencies": {
-    "@babel/register": "^7.5.5",
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
-    "babel-eslint": "^10.0.1",
-    "babel-plugin-import": "^1.12.0",
-    "chalk": "^2.4.2",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "less": "^3.9.0",
-    "less-loader": "^5.0.0",
-    "mockjs": "^1.0.1-beta3",
-    "postcss-px-to-viewport": "^1.1.0",
-    "style-resources-loader": "^1.2.1",
-    "vue-template-compiler": "^2.6.10"
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
     }
   },
-  "browserslist": [
-    "Android >= 4.0",
-    "iOS >= 7"
-  ]
+  "dependencies": {
+    "@nuxtjs/axios": "^5.6.0",
+    "cookie-universal-nuxt": "^2.0.17",
+    "cross-env": "^5.2.0",
+    "koa": "^2.6.2",
+    "nuxt": "^2.0.0",
+    "vant": "^2.1.7"
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-module": "^1.0.0",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-import": "^1.12.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "husky": "^2.6.0",
+    "lint-staged": "^8.2.1",
+    "mockjs": "^1.0.1-beta3",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "nodemon": "^1.18.9",
+    "postcss-px-to-viewport": "^1.1.1",
+    "require-directory": "^2.1.1",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2"
+  }
 }
