@@ -37,18 +37,18 @@ export default {
       if (val) this.show = true
       else this.show = false
     },
-    product(val) { // 监听product，设置goods属性
-      this.goods = {
-        title: val.name,
-        picture: val.merchandisePictures[0].image
-      }
+    product: { // 监听product，设置goods属性
+      handler(val) {
+        this.goods = { title: val.name, picture: val.merchandisePictures[0].image }
+      },
+      immediate: true
     }
   },
   mounted() {
     this.getProductSku()
   },
   methods: {
-    onBuyClicked(skuData) { // 点击立即购买
+    onBuyClicked(skuData) { // TODO:点击立即购买
       this.$toast('立即购买，待完善')
       console.log('buy', skuData)
     },
@@ -78,7 +78,7 @@ export default {
       this.$emit('update:mode', '')
     },
     async getProductSku() { // 获取商品Sku
-      const { data } = await this.$axios.get(`/dev-api/product/sku/${this.product.id}`)
+      const { data } = await this.$api.getProductSku(this.product.id)
       const k = []
       const v = []
       const attributes = data.map(item => item.attributes.split(',')).flat()

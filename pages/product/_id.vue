@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="product-page">
     <product-banners :banners="product.merchandisePictures" />
     <product-info :info="product" />
     <product-details :details="product.detailedDescription" />
@@ -25,19 +25,16 @@ export default {
     ProductSku
   },
   data: () => ({
-    mode: '',
-    product: {}
+    mode: ''
   }),
-  created() {
-    const id = parseInt(this.$route.params.id)
-    this.getProductInfo(id)
+  asyncData: async({ app, params }) => {
+    const id = parseInt(params.id)
+    const { data: product } = await app.$api.getProductInfo(id)
+    return {
+      product: product
+    }
   },
   methods: {
-    // 根据ID获取商品信息
-    async getProductInfo(id) {
-      const { data } = await this.$axios.get(`/dev-api/product/${id}`)
-      this.product = data
-    },
     // 开启sku选择
     handleOpenSku(mode) {
       this.mode = mode

@@ -1,6 +1,7 @@
 import { Notify } from 'vant'
+import Api from '@/api'
 
-export default ({ app }) => {
+export default ({ app }, inject) => {
   const axios = app.$axios
   const { HOST, PORT } = app.context.env
 
@@ -43,4 +44,7 @@ export default ({ app }) => {
     }
     return Promise.reject(error.response)
   })
+
+  // 注册api
+  inject('api', Api(app.$axios))
 }

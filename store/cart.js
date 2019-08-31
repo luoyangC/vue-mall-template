@@ -28,12 +28,12 @@ export const mutations = {
 export const actions = {
   // 获取购物车列表
   async setCarts({ commit }) {
-    const { data } = await this.$axios.get('/dev-api/carts')
+    const { data } = await this.$api.getCarts()
     commit('SET_CARTS', data)
   },
   // 添加到购物车
   async addCarts({ commit }, skuData) {
-    const { data } = await this.$axios.post('/dev-api/cart', skuData)
+    const { data } = await this.$api.addToCart(skuData)
     commit('ADD_CART', data)
     return data
   },

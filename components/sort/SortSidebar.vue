@@ -30,12 +30,12 @@ export default {
     }
   },
   created() {
-    this.getCategorys()
+    this.getCategories()
   },
   methods: {
     // 获取分类数据
-    async getCategorys() {
-      const { data } = await this.$axios.get('/dev-api/categories')
+    async getCategories() {
+      const { data } = await this.$api.getCategories()
       this.items = data.map(item => ({ text: item.title, id: item.id }))
     }
   }

@@ -11,11 +11,7 @@
     >
       <div slot="action" style="color:white" @click="onSearch">搜索</div>
     </van-search>
-    <van-popup
-      v-model="show"
-      position="bottom"
-      @click="show = false"
-    >
+    <van-popup v-model="show" position="bottom" @click="show = false">
       <search-content :tags="histories" />
     </van-popup>
   </div>
@@ -41,16 +37,16 @@ export default {
     this.initTags()
   },
   methods: {
-    onSearch() {
+    onSearch() { // TODO:搜索回调
       if (!this.search) return
       this.$toast(this.search)
-      const index = this.histories.indexOf(this.search)
-      if (index !== -1) this.histories.splice(index, 1)
+      const index = this.histories.indexOf(this.search) // 判断是否有搜索历史
+      if (index !== -1) this.histories.splice(index, 1) // 有就删除以前的，并添加到搜索历史最前面
       this.histories.push(this.search)
       setStore('history-tags', this.histories)
       this.search = ''
     },
-    initTags() {
+    initTags() { // 初始化标签
       const tags = getStore('history-tags')
       if (!tags) this.histories = []
       else this.histories = JSON.parse(tags)

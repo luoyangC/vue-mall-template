@@ -1,7 +1,7 @@
 <template>
-  <van-swipe :autoplay="3000">
-    <van-swipe-item v-for="(image, index) in images" :key="index">
-      <van-image height="200" fit="contain" :src="image" />
+  <van-swipe :autoplay="5000">
+    <van-swipe-item v-for="banner in banners" :key="banner.id">
+      <van-image fit="contain" :src="banner.image" />
     </van-swipe-item>
   </van-swipe>
 </template>
@@ -15,11 +15,16 @@ export default {
     [SwipeItem.name]: SwipeItem
   },
   data: () => ({
-    images: [
-      'https://img.yzcdn.cn/vant/apple-2.jpg',
-      'https://img.yzcdn.cn/vant/apple-3.jpg',
-      'https://img.yzcdn.cn/vant/apple-4.jpg'
-    ]
-  })
+    banners: []
+  }),
+  created() {
+    this.getBanners()
+  },
+  methods: {
+    async getBanners() { // 获取首页banner列表
+      const { data } = await this.$api.getBanners()
+      this.banners = data
+    }
+  }
 }
 </script>

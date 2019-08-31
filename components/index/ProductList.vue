@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     async getProducts() {
-      const { data } = await this.$axios.get('/dev-api/products')
+      const { data } = await this.$api.getProducts()
       this.products = data
     }
   }

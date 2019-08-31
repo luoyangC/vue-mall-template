@@ -24,7 +24,7 @@ export const mutations = {
 export const actions = {
   // 用户登录
   async login({ commit, dispatch }, form) {
-    const { data } = await this.$axios.post('/dev-api/user/login', form)
+    const { data } = await this.$api.login(form)
     if (data) {
       dispatch('setInfo')
       commit('SET_TOKEN', data.token)
@@ -34,7 +34,7 @@ export const actions = {
   },
   // 设置用户信息
   async setInfo({ commit }) {
-    const { data } = await this.$axios.get('/dev-api/user/info')
+    const { data } = await this.$api.getUserInfo()
     if (data) {
       commit('SET_NAME', data.name)
       commit('SET_AVATAR', data.avatar)

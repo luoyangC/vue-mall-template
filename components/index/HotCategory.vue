@@ -1,11 +1,11 @@
 <template>
   <van-grid class="category-list" :column-num="5" :border="false">
     <van-grid-item
-      v-for="category in categorys"
+      v-for="category in categories"
       :key="category.id"
-      class="category-item"
       :icon="category.image"
       :text="category.title"
+      class="category-item"
     />
   </van-grid>
 </template>
@@ -19,16 +19,16 @@ export default {
     [GridItem.name]: GridItem
   },
   data: () => ({
-    categorys: []
+    categories: []
   }),
   created() {
-    this.getCategorys()
+    this.getCategories()
   },
   methods: {
     // 获取分类数据
-    async getCategorys() {
-      const { data } = await this.$axios.get('/dev-api/categories')
-      this.categorys = data
+    async getCategories() {
+      const { data } = await this.$api.getCategories()
+      this.categories = data
     }
   }
 }

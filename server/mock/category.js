@@ -18,7 +18,7 @@ for (let i = 0; i < 10; i++) {
 
 for (let i = 0; i < 8; i++) {
   sorts.push({
-    id: i + 10,
+    id: i + 100,
     title: texts[i],
     image: `${baseUrl}/sort-${i + 1}.png`
   })

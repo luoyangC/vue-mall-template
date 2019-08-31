@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     async getDetail(id) {
-      const { data } = await this.$axios.get('/dev-api/sorts', { params: { id }})
+      const { data } = await this.$api.getSorts(id)
       this.banner = data.banner.image
       this.items = data.sorts
     }
