@@ -6,7 +6,10 @@ const baseUrl = 'https://vue-mall-template.oss-cn-hangzhou.aliyuncs.com/static/i
 
 const List = []
 const details = []
-const count = 20
+const count = 200
+const randomNum = (lower, upper) => {
+  return Math.floor(Math.random() * (upper - lower)) + lower
+}
 
 const sku = [
   {
@@ -45,27 +48,31 @@ for (let i = 0; i < 10; i++) {
 for (let i = 0; i < count; i++) {
   List.push(Mock.mock({
     id: '@increment',
-    name: '@title(2, 3)',
-    brand: '@title(1， 2)',
+    name: '@title(2, 4)',
+    brand: '@title(1, 2)',
     'originalPrice|1000-10000': 1,
     'currentPrice|100-1000': 1,
     merchandisePictures: [
       {
         id: i + 1,
-        image: `${baseUrl}/product-${i + 1}.png`
+        image: `${baseUrl}/product-${randomNum(1, 40)}.png`
       },
       {
         id: i + 2,
-        image: `${baseUrl}/product-${i + 2}.png`
+        image: `${baseUrl}/product-${randomNum(1, 40)}.png`
       }
     ]
   }))
 }
 
 router.get('/dev-api/products', (ctx) => {
+  const { page = 1, size = 10 } = ctx.request.query
+  const start = page * size - size
+  const end = start + size
   ctx.body = {
     code: 20000,
-    data: List
+    data: List.slice(start, end),
+    count: List.length
   }
 })
 

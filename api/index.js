@@ -22,7 +22,7 @@ export default (axios) => ({
   getSorts: (id) => { return axios.get('/dev-api/sorts', { params: { id }}) },
 
   // 获取首页推荐商品列表
-  getProducts: () => { return axios.get('/dev-api/products') },
+  getProducts: (params) => { return axios.get('/dev-api/products', { params }) },
 
   // 根据商品Id获取商品详情
   getProductInfo: (id) => { return axios.get(`/dev-api/product/${id}`) },

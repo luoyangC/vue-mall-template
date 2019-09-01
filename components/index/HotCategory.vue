@@ -18,17 +18,10 @@ export default {
     [Grid.name]: Grid,
     [GridItem.name]: GridItem
   },
-  data: () => ({
-    categories: []
-  }),
-  created() {
-    this.getCategories()
-  },
-  methods: {
-    // 获取分类数据
-    async getCategories() {
-      const { data } = await this.$api.getCategories()
-      this.categories = data
+  props: {
+    categories: {
+      type: Array,
+      default: () => []
     }
   }
 }
