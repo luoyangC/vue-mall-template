@@ -31,7 +31,7 @@ module.exports = {
   */
   css: [
     'vant/lib/index.css',
-    '~assets/transition.css'
+    '~assets/style/transition.styl'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -59,7 +59,7 @@ module.exports = {
    * 加载全局css变量
    */
   styleResources: {
-    stylus: './assets/index.styl'
+    stylus: '~assets/style/index.styl'
   },
   /*
   ** Build configuration
