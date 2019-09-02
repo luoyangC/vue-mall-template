@@ -25,8 +25,8 @@ const actions = {
     const { data } = await userLogin(form)
     if (data) {
       dispatch('setInfo')
-      commit('SET_TOKEN', data)
-      setToken(data)
+      commit('SET_TOKEN', data.token)
+      setToken(data.token)
       return data
     }
   },

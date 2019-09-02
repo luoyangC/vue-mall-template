@@ -57,6 +57,12 @@ const frameOut = [
         name: 'about',
         meta: { auth: 0, title: '关于' },
         component: () => import('@/views/about/About')
+      },
+      {
+        path: 'setting',
+        name: 'setting',
+        meta: { auth: 1, title: '设置' },
+        component: () => import('@/views/setting/Setting')
       }
     ]
   }
