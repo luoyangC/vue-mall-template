@@ -1,8 +1,8 @@
 <template>
   <div>
-    <vant-cell-group>
+    <van-cell-group>
       <van-cell title="关于" is-link to="/about" />
-    </vant-cell-group>
+    </van-cell-group>
     <van-button type="default" style="width: 100%" @click="handleLogout">退出登录</van-button>
   </div>
 </template>
