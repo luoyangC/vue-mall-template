@@ -5,12 +5,14 @@ import user from './user'
 import cart from './cart'
 import product from './product'
 import category from './category'
+import banner from './banner'
 
 const mocks = [
   ...user,
   ...cart,
   ...product,
-  ...category
+  ...category,
+  ...banner
 ]
 
 // for front mock

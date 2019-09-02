@@ -1,64 +1,12 @@
 import Mock from 'mockjs'
 
-const List = []
-const count = 30
+const baseUrl = 'https://vue-mall-template.oss-cn-hangzhou.aliyuncs.com/static/images'
 
-for (let i = 0; i < count; i++) {
-  List.push(Mock.mock({
-    id: '@increment',
-    name: '@title(2, 3)',
-    brand: '@title(1， 2)',
-    'originalPrice|1000-10000': 1,
-    'currentPrice|100-1000': 1,
-    'merchandisePictures|1-5': [
-      {
-        'id|+1': 1,
-        image: 'https://luoyangc.oss-cn-shanghai.aliyuncs.com/media/image/icons/xigua.png'
-      }
-    ],
-    detailedDescription: [
-      {
-        'id': 1,
-        'image': '/static/images/detail-1.webp'
-      },
-      {
-        'id': 2,
-        'image': '/static/images/detail-2.webp'
-      },
-      {
-        'id': 3,
-        'image': '/static/images/detail-3.webp'
-      },
-      {
-        'id': 4,
-        'image': '/static/images/detail-4.webp'
-      },
-      {
-        'id': 5,
-        'image': '/static/images/detail-5.webp'
-      },
-      {
-        'id': 6,
-        'image': '/static/images/detail-6.webp'
-      },
-      {
-        'id': 7,
-        'image': '/static/images/detail-7.webp'
-      },
-      {
-        'id': 8,
-        'image': '/static/images/detail-8.webp'
-      },
-      {
-        'id': 9,
-        'image': '/static/images/detail-9.webp'
-      },
-      {
-        'id': 10,
-        'image': '/static/images/detail-10.webp'
-      }
-    ]
-  }))
+const List = []
+const details = []
+const count = 200
+const randomNum = (lower, upper) => {
+  return Math.floor(Math.random() * (upper - lower)) + lower
 }
 
 const sku = [
@@ -88,29 +36,45 @@ const sku = [
   }
 ]
 
+for (let i = 0; i < 10; i++) {
+  details.push({
+    id: i + 1,
+    image: `${baseUrl}/detail-${i + 1}.webp`
+  })
+}
+
+for (let i = 0; i < count; i++) {
+  List.push(Mock.mock({
+    id: '@increment',
+    name: '@title(2, 4)',
+    brand: '@title(1, 2)',
+    'originalPrice|1000-10000': 1,
+    'currentPrice|100-1000': 1,
+    merchandisePictures: [
+      {
+        id: i + 1,
+        image: `${baseUrl}/product-${randomNum(1, 40)}.png`
+      },
+      {
+        id: i + 2,
+        image: `${baseUrl}/product-${randomNum(1, 40)}.png`
+      }
+    ]
+  }))
+}
+
 export default [
   {
-    url: '/product/list',
+    url: '/products',
     type: 'get',
     response: config => {
+      const { page = 1, size = 10 } = config.query
+      const start = page * size - size
+      const end = start + size
       return {
         code: 20000,
-        data: List
-      }
-    }
-  },
-  {
-    url: '/product/detail',
-    type: 'get',
-    response: config => {
-      const { id } = config.query
-      for (const item of List) {
-        if (item.id === +id) {
-          return {
-            code: 20000,
-            data: item
-          }
-        }
+        data: List.slice(start, end),
+        count: List.length
       }
     }
   },
@@ -121,6 +85,31 @@ export default [
       return {
         code: 20000,
         data: sku
+      }
+    }
+  },
+  {
+    url: '/product',
+    type: 'get',
+    response: config => {
+      let product = ''
+      const { id } = config.query
+      for (const item of List) {
+        if (item.id === parseInt(id)) {
+          product = item
+          product.detailedDescription = details
+        }
+      }
+      if (product) {
+        return {
+          code: 20000,
+          data: product
+        }
+      } else {
+        return {
+          code: 40004,
+          msg: '没有找到'
+        }
       }
     }
   }

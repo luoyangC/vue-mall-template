@@ -5,32 +5,42 @@ export default [
     type: 'post',
     response: config => {
       const { username } = config.body
-      const token = `${username}-token`
-      return {
-        code: 20000,
-        data: token
+      if (username) {
+        return {
+          code: 20000,
+          data: {
+            token: username + '-' + 'token'
+          }
+        }
+      } else {
+        return {
+          code: 40000,
+          msg: '参数错误'
+        }
       }
     }
   },
 
   // get user info
   {
-    url: '/user/info\.*',
+    url: '/user/info',
     type: 'get',
     response: config => {
       const { token } = config.headers
-      // mock error
-      if (!token) {
-        return {
-          code: 50008,
-          message: '未登录'
-        }
-      } else {
+      if (token) {
         const username = token.split('-')[0]
         return {
           code: 20000,
           data: {
             name: username,
+            avatar: 'https://luoyangc.oss-cn-shanghai.aliyuncs.com/media/image/icons/xigua.png'
+          }
+        }
+      } else {
+        return {
+          code: 20000,
+          data: {
+            name: '未登录',
             avatar: 'https://luoyangc.oss-cn-shanghai.aliyuncs.com/media/image/icons/xigua.png'
           }
         }

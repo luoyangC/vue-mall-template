@@ -9,10 +9,10 @@ export const getCategorys = () => { return axios.get('/dev-api/categories') }
 export const getSorts = (id) => { return axios.get('/dev-api/sorts', { params: { id }}) }
 
 // 获取商品列表
-export const getProducts = () => { return axios.get('/dev-api/product/list') }
+export const getProducts = () => { return axios.get('/dev-api/products') }
 
 // 获取商品详情
-export const getProductById = (id) => { return axios.get('/dev-api/product/detail', { params: { id }}) }
+export const getProductById = (id) => { return axios.get('/dev-api/product', { params: { id }}) }
 
 // 获取规格商品
 export const getProductSku = (id) => { return axios.get('dev-api/product/sku', { params: { id }}) }
