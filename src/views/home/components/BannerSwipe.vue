@@ -1,31 +1,37 @@
 <template>
-  <van-swipe :autoplay="3000">
-    <van-swipe-item v-for="(image, index) in images" :key="index">
-      <van-image height="200" fit="contain" :src="image" />
+  <van-swipe :autoplay="5000" style="height:30vw">
+    <van-swipe-item v-for="banner in banners" :key="banner.id">
+      <van-image fit="contain" :src="banner.image">
+        <template v-slot:loading>
+          <van-loading type="spinner" size="20" />
+        </template>
+      </van-image>
     </van-swipe-item>
   </van-swipe>
 </template>
 
 <script>
-import { Swipe, SwipeItem } from 'vant'
+import { Swipe, SwipeItem, Loading } from 'vant'
 export default {
+  name: 'BannerSwipe',
   components: {
     [Swipe.name]: Swipe,
-    [SwipeItem.name]: SwipeItem
+    [SwipeItem.name]: SwipeItem,
+    [Loading.name]: Loading
   },
-  data: () => ({
-    images: [
-      'https://img.yzcdn.cn/vant/apple-2.jpg',
-      'https://img.yzcdn.cn/vant/apple-3.jpg',
-      'https://img.yzcdn.cn/vant/apple-4.jpg'
-    ]
-  })
+  props: {
+    banners: {
+      type: Array,
+      default: () => []
+    }
+  }
 }
 </script>
 
 <style lang="less" scoped>
-.van-swipe-item{
-  background: #fff;
+/deep/.van-image__loading {
+  width: 100vw;
+  margin-top: 12vw;
 }
 </style>
 

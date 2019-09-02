@@ -3,13 +3,13 @@ import { getAxios } from '@/plugins/axios'
 const axios = getAxios()
 
 // 获取热门分类
-export const getCategorys = () => { return axios.get('/dev-api/categories') }
+export const getCategories = () => { return axios.get('/dev-api/categories') }
 
 // 获取分类详情
 export const getSorts = (id) => { return axios.get('/dev-api/sorts', { params: { id }}) }
 
 // 获取商品列表
-export const getProducts = () => { return axios.get('/dev-api/products') }
+export const getProducts = (params) => { return axios.get('/dev-api/products', { params }) }
 
 // 获取商品详情
 export const getProductById = (id) => { return axios.get('/dev-api/product', { params: { id }}) }
@@ -28,3 +28,6 @@ export const userLogin = (data) => { return axios.post('/dev-api/user/login', da
 
 // 获取用户信息
 export const getUserInfo = () => { return axios.get('/dev-api/user/info') }
+
+// 获取首页轮播图
+export const getBanners = () => { return axios.get('/dev-api/banners') }
