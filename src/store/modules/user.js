@@ -1,5 +1,5 @@
 import { userLogin, getUserInfo } from '@/api'
-import { getToken, setToken } from '@/utils/auth'
+import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const state = {
   name: '未登录',
@@ -37,6 +37,11 @@ const actions = {
       commit('SET_NAME', data.name)
       commit('SET_AVATAR', data.avatar)
     }
+  },
+  async logout({ commit, dispatch }) {
+    removeToken()
+    commit('SET_TOKEN', '')
+    dispatch('setInfo')
   }
 }
 

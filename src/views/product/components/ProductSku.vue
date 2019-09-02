@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import { Sku } from 'vant'
 import { getProductSku } from '@/api'
 export default {
@@ -32,6 +33,9 @@ export default {
     sku: {},
     goods: {}
   }),
+  computed: {
+    ...mapGetters(['token'])
+  },
   watch: {
     mode(val) { // 监听mode变化，控制sku组件的显示和隐藏
       if (val) this.show = true
@@ -53,25 +57,28 @@ export default {
       console.log('buy', skuData)
     },
     async onAddCartClicked(skuData) { // 点击加入购物车
-      let currentSku = null
-      this.sku.list.forEach(item => {
-        if (item.id === skuData.selectedSkuComb.id) currentSku = item
-      })
-      if (currentSku) {
-        const res = await this.$store.dispatch('cart/addCarts', {
-          id: skuData.selectedSkuComb.id,
-          title: this.goods.title,
-          origin: currentSku.origin,
-          present: currentSku.price / 100,
-          nums: skuData.selectedNum,
-          image: currentSku.picture,
-          modle: currentSku.attributes
+      if (!this.token) this.$router.push('/page/login?redirect=' + this.$route.path)
+      else {
+        let currentSku = null
+        this.sku.list.forEach(item => {
+          if (item.id === skuData.selectedSkuComb.id) currentSku = item
         })
-        if (res) this.$toast.success('添加成功')
-        else this.$toast.error('添加失败')
-        this.cancel()
-      } else {
-        this.$toast.error('添加失败')
+        if (currentSku) {
+          const res = await this.$store.dispatch('cart/addCarts', {
+            id: skuData.selectedSkuComb.id,
+            title: this.goods.title,
+            origin: currentSku.origin,
+            present: currentSku.price / 100,
+            nums: skuData.selectedNum,
+            image: currentSku.picture,
+            modle: currentSku.attributes
+          })
+          if (res) this.$toast.success('添加成功')
+          else this.$toast.error('添加失败')
+          this.cancel()
+        } else {
+          this.$toast.error('添加失败')
+        }
       }
     },
     cancel() { // 关闭sku回调

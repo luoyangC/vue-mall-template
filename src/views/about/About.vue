@@ -1,6 +1,6 @@
 <template>
   <div class="example">
-    <p>vuex示例：{{ userName }}</p>
+    <p style="margin-top:0">vuex示例：{{ userName }}</p>
     <p>浮点数运算：0.1+0.2={{ number | formatFloat(2) }}</p>
     <p @click="handleToast">Toast插件</p>
     <transition name="van-slide-left">

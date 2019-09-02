@@ -5,7 +5,7 @@
       clickable
       label="账号"
       left-icon="manager"
-      placeholder="请输入用户名"
+      placeholder="请输入用户名（任意输入）"
     />
     <van-field
       v-model="loginForm.password"
@@ -13,7 +13,7 @@
       label="密码"
       clickable
       left-icon="lock"
-      placeholder="请输入密码"
+      placeholder="请输入密码（任意输入）"
     />
     <van-row type="flex" justify="space-around">
       <van-button
@@ -44,8 +44,8 @@ export default {
   },
   data: () => ({
     loginForm: {
-      username: '',
-      password: ''
+      username: 'luoyangC',
+      password: 'luoyangC'
     }
   }),
   methods: {
@@ -54,7 +54,8 @@ export default {
       if (res) {
         this.loginForm = { username: '', password: '' }
         setTimeout(() => {
-          this.$router.go(-1)
+          console.log(this.$route)
+          this.$router.push(this.$route.query.redirect)
           this.$toast.success('登录成功')
         }, 200)
       }

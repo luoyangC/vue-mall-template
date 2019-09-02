@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 顶栏 -->
-    <van-nav-bar :title="this.$route.meta.title" left-text="返回" left-arrow @click-left="onClickLeft" @click-right="onClickRight">
+    <van-nav-bar :title="this.$route.meta.title" left-text="返回" left-arrow style="background: pink" @click-left="onClickLeft" @click-right="onClickRight">
       <van-icon slot="right" name="search" />
     </van-nav-bar>
     <!-- 页面 -->
@@ -32,3 +32,9 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+/deep/.van-nav-bar__title{
+  color: white;
+}
+</style>
