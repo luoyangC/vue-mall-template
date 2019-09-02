@@ -3,7 +3,6 @@
     v-model="show"
     :sku="sku"
     :goods="goods"
-    price-tag="￥"
     @buy-clicked="onBuyClicked"
     @add-cart="onAddCartClicked"
     @sku-close="cancel"
