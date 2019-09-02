@@ -38,32 +38,42 @@ export default {
       if (val) this.show = true
       else this.show = false
     },
-    product(val) { // 监听product，设置goods属性
-      this.goods = {
-        title: val.name,
-        picture: val.merchandisePictures[0].image
-      }
+    product: { // 监听product，设置goods属性
+      handler(val) {
+        this.goods = { title: val.name, picture: val.merchandisePictures[0].image }
+      },
+      immediate: true
     }
   },
   mounted() {
     this.getProductSku()
   },
   methods: {
-    onBuyClicked(skuData) { // 点击立即购买
+    onBuyClicked(skuData) { // TODO:点击立即购买
+      this.$toast('立即购买，待完善')
       console.log('buy', skuData)
     },
     async onAddCartClicked(skuData) { // 点击加入购物车
-      const res = await this.$store.dispatch('cart/addCarts', {
-        'id': skuData.selectedSkuComb.id,
-        'title': this.goods.title,
-        'modle': this.product.attributes,
-        'origin': this.product.originalPrice,
-        'present': this.product.currentPrice,
-        'nums': skuData.selectedNum,
-        'image': this.goods.picture
+      let currentSku = null
+      this.sku.list.forEach(item => {
+        if (item.id === skuData.selectedSkuComb.id) currentSku = item
       })
-      if (res) this.$toast.success('添加成功')
-      this.cancel()
+      if (currentSku) {
+        const res = await this.$store.dispatch('cart/addCarts', {
+          id: skuData.selectedSkuComb.id,
+          title: this.goods.title,
+          origin: currentSku.origin,
+          present: currentSku.price / 100,
+          nums: skuData.selectedNum,
+          image: currentSku.picture,
+          modle: currentSku.attributes
+        })
+        if (res) this.$toast.success('添加成功')
+        else this.$toast.error('添加失败')
+        this.cancel()
+      } else {
+        this.$toast.error('添加失败')
+      }
     },
     cancel() { // 关闭sku回调
       this.$emit('update:mode', '')
@@ -109,16 +119,21 @@ export default {
       const list = []
       for (const item of products) {
         const _attributes = {}
+        const _values = []
         item.attributes.split(',').forEach(_attr => {
           const k_i = k.indexOf(_attr.split(':')[0])
           const v_i = v.indexOf(_attr.split(':')[1])
           if (k_i === 0) this.makePicture(item, v_i, tree)
           _attributes['s' + (k_i + 1)] = v_i + 1
+          _values.push(_attr.split(':')[1])
         })
         list.push({
           id: item.id,
-          price: item.currentPrice,
+          origin: item.originalPrice,
+          price: item.currentPrice * 100,
           stock_num: item.inventory,
+          picture: item.picture,
+          attributes: _values.join(' + '),
           ..._attributes
         })
       }

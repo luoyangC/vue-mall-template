@@ -4,7 +4,7 @@
     <product-info :info="product" />
     <product-details :details="product.detailedDescription" />
     <product-action @open-sku="handleOpenSku" />
-    <product-sku :mode.sync="mode" :product="product" />
+    <product-sku v-if="product.id" :mode.sync="mode" :product="product" />
   </div>
 </template>
 

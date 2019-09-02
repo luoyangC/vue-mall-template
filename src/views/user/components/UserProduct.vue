@@ -2,7 +2,7 @@
   <div>
     <div class="product-title">专属推荐</div>
     <van-grid class="product-list" :gutter="6" :column-num="3" :border="false">
-      <van-grid-item v-for="product in products" :key="product.id" :to="`/product/${product.id}`">
+      <van-grid-item v-for="product in products" :key="product.id" :to="`/page/product/${product.id}`">
         <product-card :item="product" />
       </van-grid-item>
     </van-grid>
