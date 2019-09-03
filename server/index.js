@@ -21,14 +21,15 @@ async function start() {
     PORT = config.env.PORT || 3000
   } = config.env
 
+  app.use(parser()) // 解析body的中间件
+  requireDirectory(module, './mock', { // 加载mock接口
+    visit: (obj) => {
+      if (obj instanceof Router) app.use(obj.routes())
+    }
+  })
+
   // 判断是否为开发环境
   if (config.dev) {
-    app.use(parser()) // 解析body的中间件
-    requireDirectory(module, './mock', { // 加载mock接口
-      visit: (obj) => {
-        if (obj instanceof Router) app.use(obj.routes())
-      }
-    })
     const builder = new Builder(nuxt)
     await builder.build()
   } else {
