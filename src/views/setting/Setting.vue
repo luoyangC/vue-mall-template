@@ -1,6 +1,7 @@
 <template>
   <div>
     <van-cell-group>
+      <van-cell title="求和（vuex示例）" is-link clickable to="/page/sum" />
       <van-cell title="示例（一些小demo）" is-link clickable to="/page/about" />
       <van-cell title="文档（还在写/(ㄒoㄒ)/~~）" is-link clickable @click="$toast('尽请期待')" />
       <van-cell title="源码（就是github地址啦~\(≧▽≦)/~）" is-link clickable url="https://github.com/luoyangC/vue-mall-template" />
