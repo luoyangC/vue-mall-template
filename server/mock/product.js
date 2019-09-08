@@ -6,7 +6,7 @@ const baseUrl = 'https://vue-mall-template.oss-cn-hangzhou.aliyuncs.com/static/i
 
 const List = []
 const details = []
-const count = 200
+const count = 2000
 const randomNum = (lower, upper) => {
   return Math.floor(Math.random() * (upper - lower)) + lower
 }
@@ -52,6 +52,7 @@ for (let i = 0; i < count; i++) {
     brand: '@title(1, 2)',
     'originalPrice|1000-10000': 1,
     'currentPrice|100-1000': 1,
+    'category|1-5': 1,
     merchandisePictures: [
       {
         id: i + 1,
@@ -66,13 +67,22 @@ for (let i = 0; i < count; i++) {
 }
 
 router.get('/dev-api/products', (ctx) => {
-  const { page = 1, size = 10 } = ctx.request.query
+  const { page = 1, size = 10, category = 0 } = ctx.request.query
   const start = page * size - size
   const end = start + size
-  ctx.body = {
-    code: 20000,
-    data: List.slice(start, end),
-    count: List.length
+  if (!category) {
+    ctx.body = {
+      code: 20000,
+      data: List.slice(start, end),
+      count: List.length
+    }
+  } else {
+    const filterList = List.filter(item => item.category === parseInt(category))
+    ctx.body = {
+      code: 20000,
+      data: filterList.slice(start, end),
+      count: filterList.length
+    }
   }
 })
 
