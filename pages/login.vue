@@ -8,7 +8,6 @@
 import PasswordLogin from '@/components/login/PasswordLogin'
 export default {
   name: 'Login',
-  layout: 'general',
   components: {
     PasswordLogin
   }

@@ -37,6 +37,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    { src: '~plugins/scroll', ssr: false },
     { src: '~plugins/axios', ssr: true },
     { src: '~plugins/vant', ssr: true },
     { src: '~plugins/filter', ssr: true }

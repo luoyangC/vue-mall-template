@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import restoreScroll from '@/mixins/restoreScroll'
 import UserNavbar from '@/components/user/UserNavbar'
 import UserInfo from '@/components/user/UserInfo'
 import UserOrder from '@/components/user/UserOrder'
@@ -20,6 +21,7 @@ export default {
     UserInfo,
     UserOrder,
     UserProduct
-  }
+  },
+  mixins: [restoreScroll]
 }
 </script>

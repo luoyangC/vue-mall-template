@@ -23,7 +23,6 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'About',
-  layout: 'general',
   data: () => ({
     show: false
   }),

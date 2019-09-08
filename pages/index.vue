@@ -1,5 +1,5 @@
 <template>
-  <van-pull-refresh v-model="isLoading" class="home" @refresh="onRefresh">
+  <van-pull-refresh v-model="isLoading" class="index" @refresh="onRefresh">
     <!-- 搜索组件 -->
     <search-bar />
     <!-- 轮播图组件 -->
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import restoreScroll from '@/mixins/restoreScroll'
 import { PullRefresh } from 'vant'
 import SearchBar from '@/components/index/SearchBar'
 import BannerSwipe from '@/components/index/BannerSwipe'
@@ -26,6 +27,7 @@ export default {
     HotCategory,
     ProductList
   },
+  mixins: [restoreScroll],
   data: () => ({
     isLoading: false
   }),

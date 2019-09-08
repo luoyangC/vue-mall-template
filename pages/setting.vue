@@ -14,7 +14,6 @@
 import { Cell, CellGroup } from 'vant'
 export default {
   name: 'Setting',
-  layout: 'general',
   middleware: 'auth',
   components: {
     [CellGroup.name]: CellGroup,

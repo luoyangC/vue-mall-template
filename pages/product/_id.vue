@@ -16,7 +16,6 @@ import ProductAction from '@/components/product/ProductAction'
 import ProductSku from '@/components/product/ProductSku'
 export default {
   name: 'Product',
-  layout: 'general',
   components: {
     ProductBanners,
     ProductInfo,
