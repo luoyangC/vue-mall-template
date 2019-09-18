@@ -107,7 +107,7 @@ export default {
             v: [{ id: v.length, name: val }],
             k_s: 's' + k.length
           })
-        } else {
+        } else if (v.indexOf(val) === -1) {
           v.push(val)
           tree[index].v.push({ id: v.length, name: val })
         }
