@@ -1,6 +1,6 @@
 <template>
   <div class="user-order">
-    <div class="order-title">我的订单</div>
+    <div class="user-order__title">我的订单</div>
     <van-grid :column-num="5">
       <van-grid-item icon="card" text="待付款" />
       <van-grid-item icon="shop" text="待发货" />
@@ -28,7 +28,7 @@ export default {
   padding: 8px
   border-radius: 10px
   color orange
-  .order-title
+  .user-order__title
     padding-bottom 4px
   >>>.van-grid-item__content
     padding 8px

@@ -1,5 +1,5 @@
 <template>
-  <div style="background: #fafafa;">
+  <div class="user">
     <user-navbar />
     <user-info />
     <user-order />

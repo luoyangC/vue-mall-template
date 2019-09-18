@@ -40,6 +40,5 @@ export default {
 .product-title
   text-align: center
   font-size: 14px
-  color: pink
   margin-top: 10px
 </style>

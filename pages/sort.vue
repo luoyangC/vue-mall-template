@@ -1,8 +1,8 @@
 <template>
   <van-tree-select
-    height="92.5vh"
-    :items="items"
+    :items="categories"
     :main-active-index.sync="mainActiveIndex"
+    class="sort"
   >
     <template v-slot:content>
       <sort-content :active-id="mainActiveId" />
@@ -24,23 +24,25 @@ export default {
   }),
   computed: {
     mainActiveId() {
-      if (this.items.length) return this.items[this.mainActiveIndex].id
+      if (this.categories.length) return this.categories[this.mainActiveIndex].id
       return 1
     }
   },
   asyncData: async({ app }) => {
     const { data } = await app.$api.getCategories()
-    const items = data.map(item => ({ text: item.title, id: item.id }))
-    return { items }
+    const categories = data.map(item => ({ text: item.title, id: item.id }))
+    return { categories }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
->>>.van-tree-select__nav-item
-  height: 58px
-  line-height: 58px
-
->>>.van-tree-select__content
-  flex: 3
+.sort
+  height 92.5vh !important
+  >>>.van-tree-select
+    &__nav-item
+      height: 58px
+      line-height: 58px
+    &__content
+      flex: 3
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="product-page">
+  <div class="product">
     <product-banners :banners="product.merchandisePictures" />
     <product-info :info="product" />
     <product-details :details="product.detailedDescription" />

@@ -6,52 +6,29 @@
     <banner-swipe :banners="banners" />
     <!-- 热门分类 -->
     <hot-category :categories="categories" />
-    <van-tabs v-model="active" swipeable :sticky="true" :offset-top="54" background="pink">
-      <van-tab title="推荐">
-        <!-- 商品列表 -->
-        <product-list :products="products" :count="count" />
-      </van-tab>
-      <van-tab title="数码">
-        <!-- 商品列表 -->
-        <product-list :products="products" :count="count" />
-      </van-tab>
-      <van-tab title="办公">
-        <!-- 商品列表 -->
-        <product-list :products="products" :count="count" />
-      </van-tab>
-      <van-tab title="美食">
-        <!-- 商品列表 -->
-        <product-list :products="products" :count="count" />
-      </van-tab>
-      <van-tab title="游戏">
-        <!-- 商品列表 -->
-        <product-list :products="products" :count="count" />
-      </van-tab>
-    </van-tabs>
+    <!-- 商品列表 -->
+    <product-tabs :products="products" :count="count" />
   </van-pull-refresh>
 </template>
 
 <script>
-import restoreScroll from '@/mixins/restoreScroll'
-import { PullRefresh, Tab, Tabs } from 'vant'
+import { PullRefresh } from 'vant'
 import SearchBar from '@/components/index/SearchBar'
 import BannerSwipe from '@/components/index/BannerSwipe'
 import HotCategory from '@/components/index/HotCategory'
-import ProductList from '@/components/index/ProductList'
+import ProductTabs from '@/components/index/ProductTabs'
+import restoreScroll from '@/mixins/restoreScroll'
 export default {
   name: 'Index',
   components: {
     [PullRefresh.name]: PullRefresh,
-    [Tabs.name]: Tabs,
-    [Tab.name]: Tab,
     SearchBar,
     BannerSwipe,
     HotCategory,
-    ProductList
+    ProductTabs
   },
   mixins: [restoreScroll],
   data: () => ({
-    active: 0,
     isLoading: false
   }),
   asyncData: async({ app }) => { // 初始化数据
@@ -74,10 +51,3 @@ export default {
   }
 }
 </script>
-
-<style lang="stylus">
-.van-tab
-  color white
-.van-tab--active
-  color #f44 !important
-</style>

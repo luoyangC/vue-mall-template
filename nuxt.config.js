@@ -31,7 +31,7 @@ module.exports = {
   */
   css: [
     'vant/lib/index.css',
-    '~assets/style/transition.styl'
+    '~assets/style/index.styl'
   ],
   /*
   ** Plugins to load before mounting the App

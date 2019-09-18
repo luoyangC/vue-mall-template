@@ -2,14 +2,14 @@
   <div class="search-bar">
     <van-search
       v-model="search"
-      placeholder="请输入搜索关键词"
       show-action
       shape="round"
-      background="pink"
+      background="transparent"
+      placeholder="请输入搜索关键词"
       @focus="show = true"
       @search="onSearch"
     >
-      <div slot="action" style="color:white" @click="onSearch">搜索</div>
+      <div slot="action" class="search-bar__action" @click="onSearch">搜索</div>
     </van-search>
     <van-popup v-model="show" position="bottom" @click="show = false">
       <search-content :tags="histories" />
@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import { getStore, setStore } from '~/utils'
 import { Search, Popup } from 'vant'
 import SearchContent from './SearchContent'
+import { getStore, setStore } from '@/utils'
 export default {
   name: 'SearchBar',
   components: {
@@ -57,11 +57,11 @@ export default {
 
 <style lang="stylus" scoped>
 .search-bar
+  z-index 100
+  position fixed
+  top 0
+  width 100%
   height 54px
-  >>>.van-search
-    position fixed
-    z-index 100
-    width 100%
   >>>.van-overlay
     top: 54px
   >>>.van-popup

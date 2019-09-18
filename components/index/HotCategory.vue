@@ -1,11 +1,11 @@
 <template>
-  <van-grid class="category-list" :column-num="5" :border="false">
+  <van-grid class="hot-category-list" :column-num="5" :border="false">
     <van-grid-item
       v-for="category in categories"
       :key="category.id"
       :icon="category.image"
       :text="category.title"
-      class="category-item"
+      class="hot-category-item"
     />
   </van-grid>
 </template>
@@ -28,12 +28,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.category-list
-  padding-bottom: 8px
-
-.category-item
-  >>>.van-grid-item__content
-    padding: 8px
-  >>>.van-grid-item__icon
-    font-size: 52px
+.hot-category
+  &-list
+    padding-bottom: 8px
+  &-item
+    >>>.van-grid-item__content
+      padding: 8px
+      background-color transparent
+    >>>.van-grid-item__icon
+      font-size: 52px
 </style>
