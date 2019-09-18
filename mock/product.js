@@ -11,7 +11,7 @@ const randomNum = (lower, upper) => {
 
 const sku = [
   {
-    attributes: '颜色:白色,尺寸:m',
+    attributes: '颜色:白色,尺寸:m,产地:中国',
     currentPrice: 18.88,
     id: '22',
     inventory: 220,
@@ -23,7 +23,19 @@ const sku = [
     updateDate: '2019-08-13T05:42:56.000+0000'
   },
   {
-    attributes: '颜色:黑色,尺寸:s',
+    attributes: '颜色:白色,尺寸:l,产地:中国',
+    currentPrice: 18.88,
+    id: '24',
+    inventory: 220,
+    name: 'test',
+    originalPrice: 220,
+    picture: 'https://images.zhihuimingxing.com/Fmd9K7pUMycwut4kZbny70vrge5d',
+    sales: 0,
+    settlementPrice: 220,
+    updateDate: '2019-08-13T05:42:56.000+0000'
+  },
+  {
+    attributes: '颜色:黑色,尺寸:s,产地:日本',
     currentPrice: 9.99,
     id: '33',
     inventory: 10,
@@ -35,6 +47,33 @@ const sku = [
     updateDate: '2019-08-13T05:55:30.000+0000'
   }
 ]
+
+// const sku = [
+//   {
+//     attributes: '颜色:白色,尺寸:m',
+//     currentPrice: 18.88,
+//     id: '22',
+//     inventory: 220,
+//     name: 'test',
+//     originalPrice: 220,
+//     picture: 'https://images.zhihuimingxing.com/Fmd9K7pUMycwut4kZbny70vrge5d',
+//     sales: 0,
+//     settlementPrice: 220,
+//     updateDate: '2019-08-13T05:42:56.000+0000'
+//   },
+//   {
+//     attributes: '颜色:黑色,尺寸:s',
+//     currentPrice: 9.99,
+//     id: '33',
+//     inventory: 10,
+//     name: 'test',
+//     originalPrice: 9,
+//     picture: 'https://images.zhihuimingxing.com/FgD6j9fbLclWZ1ih5eFKFCvsrFsz',
+//     sales: 0,
+//     settlementPrice: 101,
+//     updateDate: '2019-08-13T05:55:30.000+0000'
+//   }
+// ]
 
 for (let i = 0; i < 10; i++) {
   details.push({
