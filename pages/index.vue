@@ -7,7 +7,7 @@
     <!-- 热门分类 -->
     <hot-category :categories="categories" />
     <!-- 商品列表 -->
-    <product-tabs :products="products" :count="count" />
+    <product-list :products="products" :count="count" />
   </van-pull-refresh>
 </template>
 
@@ -16,7 +16,7 @@ import { PullRefresh } from 'vant'
 import SearchBar from '@/components/index/SearchBar'
 import BannerSwipe from '@/components/index/BannerSwipe'
 import HotCategory from '@/components/index/HotCategory'
-import ProductTabs from '@/components/index/ProductTabs'
+import ProductList from '@/components/index/ProductList'
 import restoreScroll from '@/mixins/restoreScroll'
 export default {
   name: 'Index',
@@ -25,7 +25,7 @@ export default {
     SearchBar,
     BannerSwipe,
     HotCategory,
-    ProductTabs
+    ProductList
   },
   mixins: [restoreScroll],
   data: () => ({

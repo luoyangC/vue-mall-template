@@ -10,7 +10,7 @@
 
 <script>
 import { List, Grid, GridItem } from 'vant'
-import ProductCard from '@/components/ProductCard'
+import ProductCard from '@/components/product/ProductCard'
 export default {
   components: {
     [List.name]: List,
