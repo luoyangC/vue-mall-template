@@ -28,7 +28,7 @@ export default {
   padding: 8px
   border-radius: 10px
   color orange
-  .user-order__title
+  &__title
     padding-bottom 4px
   >>>.van-grid-item__content
     padding 8px

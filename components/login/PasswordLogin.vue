@@ -1,5 +1,5 @@
 <template>
-  <van-cell-group>
+  <van-cell-group class="login-form">
     <van-field
       v-model="loginForm.username"
       clickable
@@ -20,13 +20,13 @@
         plain
         hairline
         type="info"
-        class="register-btn"
+        class="login-form__register"
         @click="$toast('暂无注册，输入任意内容登录')"
       >注册新账号</van-button>
       <van-button
         :disabled="!loginForm.password || !loginForm.username"
         type="danger"
-        class="login-btn"
+        class="login-form__login"
         @click="handleLogin"
       >登录</van-button>
     </van-row>
@@ -64,12 +64,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.login-btn {
-  width: 40%;
-  margin: 10px 0;
-}
-.register-btn {
-  width: 40%;
-  margin: 10px 0;
-}
+.login-form
+  &__login
+    width: 40%
+    margin: 10px 0
+  &__register
+    width: 40%
+    margin: 10px 0
 </style>

@@ -37,17 +37,17 @@ export default {
     this.initTags()
   },
   methods: {
-    onSearch() { // TODO:搜索回调
+    onSearch() { // 搜索回调
       if (!this.search) return
       this.$toast(this.search)
       const index = this.histories.indexOf(this.search) // 判断是否有搜索历史
       if (index !== -1) this.histories.splice(index, 1) // 有就删除以前的，并添加到搜索历史最前面
       this.histories.push(this.search)
-      setStore('history-tags', this.histories)
+      setStore('history-tags', this.histories) // 存储到本地
       this.search = ''
     },
     initTags() { // 初始化标签
-      const tags = getStore('history-tags')
+      const tags = getStore('history-tags') // 从本地获取数据
       if (!tags) this.histories = []
       else this.histories = JSON.parse(tags)
     }

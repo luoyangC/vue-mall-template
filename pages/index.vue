@@ -44,9 +44,6 @@ export default {
       this.count = count
       this.$toast.success('刷新成功')
       this.isLoading = false
-    },
-    async getProductsByCate() { // 获取指定分类商品列表
-
     }
   }
 }

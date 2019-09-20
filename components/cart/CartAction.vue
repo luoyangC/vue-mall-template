@@ -41,12 +41,12 @@ export default {
 
 <style lang="stylus" scoped>
 .van-submit-bar
-  bottom: 50px;
+  bottom: 50px
   .van-checkbox
-    padding-left: 10px;
+    padding-left: 10px
   .van-button
-    border-radius: 32px;
-    height: 32px;
-    line-height: 32px;
-    margin: 0 10px;
+    border-radius: 32px
+    height: 32px
+    line-height: 32px
+    margin: 0 10px
 </style>

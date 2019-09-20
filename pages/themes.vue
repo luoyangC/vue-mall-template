@@ -25,34 +25,13 @@ export default {
   },
   data: () => ({
     themes: [
-      {
-        name: 'bili',
-        title: '默认'
-      },
-      {
-        name: 'sakura',
-        title: '樱花'
-      },
-      {
-        name: 'aotake',
-        title: '青竹'
-      },
-      {
-        name: 'asagi',
-        title: '露草'
-      },
-      {
-        name: 'kikyo',
-        title: '桔梗'
-      },
-      {
-        name: 'kanzo',
-        title: '萱草'
-      },
-      {
-        name: 'kuro',
-        title: '墨黑'
-      }
+      { name: 'bili', title: '默认' },
+      { name: 'sakura', title: '樱花' },
+      { name: 'aotake', title: '青竹' },
+      { name: 'asagi', title: '露草' },
+      { name: 'kikyo', title: '桔梗' },
+      { name: 'kanzo', title: '萱草' },
+      { name: 'kuro', title: '墨黑' }
     ]
   }),
   computed: {

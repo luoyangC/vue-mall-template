@@ -22,7 +22,7 @@ export default {
     [GridItem.name]: GridItem
   },
   props: {
-    activeId: {
+    activeId: { // 一级分类id
       type: Number,
       default: 1
     }
@@ -32,7 +32,7 @@ export default {
     items: []
   }),
   watch: {
-    activeId(val) {
+    activeId(val) { // 监听一级分类id，一旦改变重新获取分类详情
       this.getDetail(val)
     }
   },
@@ -40,7 +40,7 @@ export default {
     this.getDetail(this.activeId)
   },
   methods: {
-    async getDetail(id) {
+    async getDetail(id) { // 获取一级分类详情
       const { data } = await this.$api.getSorts(id)
       this.banner = data.banner.image
       this.items = data.sorts
@@ -56,10 +56,11 @@ export default {
   overflow: hidden
 
 .sort-item
-  >>>.van-grid-item__content
-    padding: 8px
-  >>>.van-grid-item__icon
-    font-size: 52px
-  >>>.van-grid-item__text
-    font-size: 8px
+  >>>.van-grid-item
+    &__content
+      padding: 8px
+    &__icon
+      font-size: 52px
+    &__text
+     font-size: 8px
 </style>

@@ -16,9 +16,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.product-detail {
-  .van-image {
-    margin-bottom: -3px;
-  }
-}
+.product-detail
+  .van-image
+    margin-bottom: -3px
 </style>
