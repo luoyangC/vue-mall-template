@@ -12,7 +12,7 @@ function addStyleResource(rule) {
     .loader('style-resources-loader')
     .options({
       patterns: [
-        path.resolve(__dirname, 'src/styles/index.less')
+        path.resolve(__dirname, 'src/assets/style/index.styl')
       ]
     })
 }
@@ -23,7 +23,7 @@ module.exports = {
   outputDir: 'dist',
 
   // 静态文件目录
-  publicPath: process.env.NODE_ENV === 'production' ? '/rulian/mall/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
 
   // 使用运行时编译器的 Vue 构建版本
   runtimeCompiler: true,
@@ -62,7 +62,7 @@ module.exports = {
       .set('components', resolve('src/components'))
     // 全局引入less变量、方法等
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
-    types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)))
+    types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)))
   },
 
   configureWebpack: config => {
@@ -78,18 +78,6 @@ module.exports = {
 
   css: {
     loaderOptions: {
-      less: {
-        // 自定义UI框架主题
-        modifyVars: {
-          red: '#f44',
-          white: '#fff',
-          black: '#000',
-          blue: '#1989fa',
-          gray: '#c9c9c9',
-          green: '#07c160',
-          orange: '#ff976a'
-        }
-      },
       postcss: {
         plugins: [
           autoprefixer(),

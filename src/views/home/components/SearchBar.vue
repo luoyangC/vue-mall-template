@@ -2,14 +2,14 @@
   <div class="search-bar">
     <van-search
       v-model="search"
-      placeholder="请输入搜索关键词"
       show-action
       shape="round"
-      background="pink"
+      background="transparent"
+      placeholder="请输入搜索关键词"
       @focus="show = true"
       @search="onSearch"
     >
-      <div slot="action" style="color:white" @click="onSearch">搜索</div>
+      <div slot="action" class="search-bar__action" @click="onSearch">搜索</div>
     </van-search>
     <van-popup v-model="show" position="bottom" @click="show = false">
       <search-content :tags="histories" />
@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import { getStore, setStore } from '@/utils'
 import { Search, Popup } from 'vant'
 import SearchContent from './SearchContent'
+import { getStore, setStore } from '@/utils'
 export default {
   name: 'SearchBar',
   components: {
@@ -37,17 +37,17 @@ export default {
     this.initTags()
   },
   methods: {
-    onSearch() { // TODO:搜索回调
+    onSearch() { // 搜索回调
       if (!this.search) return
       this.$toast(this.search)
       const index = this.histories.indexOf(this.search) // 判断是否有搜索历史
       if (index !== -1) this.histories.splice(index, 1) // 有就删除以前的，并添加到搜索历史最前面
       this.histories.push(this.search)
-      setStore('history-tags', this.histories)
+      setStore('history-tags', this.histories) // 存储到本地
       this.search = ''
     },
     initTags() { // 初始化标签
-      const tags = getStore('history-tags')
+      const tags = getStore('history-tags') // 从本地获取数据
       if (!tags) this.histories = []
       else this.histories = JSON.parse(tags)
     }
@@ -55,21 +55,16 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.search-bar{
-  height: 54px;
-  /deep/.van-search{
-    position:fixed;
-    z-index:100;
-    width:100%;
-  }
-  /deep/.van-overlay{
-    top: 54px;
-  }
-  /deep/.van-popup{
-    height: 100%;
-    top: 54px;
-  }
-}
+<style lang="stylus" scoped>
+.search-bar
+  z-index 100
+  position fixed
+  top 0
+  width 100%
+  height 54px
+  >>>.van-overlay
+    top: 54px
+  >>>.van-popup
+    height: 100%
+    top: 54px
 </style>
-

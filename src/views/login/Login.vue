@@ -1,5 +1,5 @@
 <template>
-  <div class="login-page">
+  <div class="login">
     <password-login />
   </div>
 </template>
@@ -14,9 +14,8 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.login-page {
-  background: white;
-  padding: 50px 0;
-}
+<style lang="stylus" scoped>
+.login
+  background: white
+  padding: 50px 0
 </style>

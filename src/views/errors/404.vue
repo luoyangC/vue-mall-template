@@ -16,14 +16,11 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.error {
-  background: #fff;
-  text-align: center;
-  margin-top: 26px;
-  .van-button {
-    margin: 16px;
-  }
-}
+<style lang="stylus" scoped>
+.error
+  background: #fff
+  text-align: center
+  margin-top: 26px
+  .van-button
+    margin: 16px
 </style>
-

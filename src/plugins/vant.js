@@ -6,6 +6,7 @@ import {
   Lazyload,
   Image
 } from 'vant'
+import 'vant/lib/index.css'
 
 Vue.use(Button)
 Vue.use(Toast)

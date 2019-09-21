@@ -50,9 +50,8 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.example{
-  text-align: center;
-  background: #fff;
-}
+<style lang="stylus" scoped>
+.example
+  text-align: center
+  background: #fff
 </style>

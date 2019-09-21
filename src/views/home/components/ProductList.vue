@@ -1,7 +1,7 @@
 <template>
   <van-list v-model="loading" :finished="finished" finished-text="到底了" class="product-list" @load="onLoad">
     <van-grid :gutter="6" :column-num="2" :border="false">
-      <van-grid-item v-for="product in products" :key="product.id" :to="`/page/product/${product.id}`">
+      <van-grid-item v-for="product in products" :key="product.id" :to="`/product/${product.id}`">
         <product-card :item="product" />
       </van-grid-item>
     </van-grid>
@@ -53,10 +53,9 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.product-list{
-  margin-bottom: 58px;
-  background: #fff;
-}
+<style lang="stylus" scoped>
+.product-list
+  margin-bottom: 58px
+  background: #fff
 </style>
 

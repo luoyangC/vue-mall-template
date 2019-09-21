@@ -50,21 +50,18 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.sort-banner {
-  margin: 10px;
-  height: 125px;
-  overflow: hidden;
-}
-.sort-item {
-  /deep/.van-grid-item__content {
-    padding: 8px;
-  }
-  /deep/.van-grid-item__icon {
-    font-size: 52px;
-  }
-  /deep/.van-grid-item__text {
-    font-size: 8px;
-  }
-}
+<style lang="stylus" scoped>
+.sort-banner
+  margin: 10px
+  height: 125px
+  overflow: hidden
+
+.sort-item
+  >>>.van-grid-item
+    &__content
+      padding: 8px
+    &__icon
+      font-size: 52px
+    &__text
+     font-size: 8px
 </style>

@@ -10,7 +10,7 @@ router.beforeEach((to, from, next) => {
     next()
   } else {
     if (to.meta.auth) {
-      next(`/page/login/?redirect=${to.path}`)
+      next(`/login/?redirect=${to.path}`)
     } else {
       next()
     }

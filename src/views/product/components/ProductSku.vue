@@ -57,7 +57,7 @@ export default {
       console.log('buy', skuData)
     },
     async onAddCartClicked(skuData) { // 点击加入购物车
-      if (!this.token) this.$router.push('/page/login?redirect=' + this.$route.path)
+      if (!this.token) this.$router.push('/login?redirect=' + this.$route.path)
       else {
         let currentSku = null
         this.sku.list.forEach(item => {

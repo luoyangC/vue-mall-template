@@ -1,11 +1,11 @@
 <template>
-  <van-cell-group>
+  <van-cell-group class="login-form">
     <van-field
       v-model="loginForm.username"
       clickable
       label="账号"
       left-icon="manager"
-      placeholder="请输入用户名（任意输入）"
+      placeholder="请输入用户名"
     />
     <van-field
       v-model="loginForm.password"
@@ -13,20 +13,20 @@
       label="密码"
       clickable
       left-icon="lock"
-      placeholder="请输入密码（任意输入）"
+      placeholder="请输入密码"
     />
     <van-row type="flex" justify="space-around">
       <van-button
         plain
         hairline
         type="info"
-        class="register-btn"
-        @click="$toast('占无注册')"
+        class="login-form__register"
+        @click="$toast('暂无注册，输入任意内容登录')"
       >注册新账号</van-button>
       <van-button
         :disabled="!loginForm.password || !loginForm.username"
         type="danger"
-        class="login-btn"
+        class="login-form__login"
         @click="handleLogin"
       >登录</van-button>
     </van-row>
@@ -54,7 +54,6 @@ export default {
       if (res) {
         this.loginForm = { username: '', password: '' }
         setTimeout(() => {
-          console.log(this.$route)
           this.$router.push(this.$route.query.redirect)
           this.$toast.success('登录成功')
         }, 200)
@@ -64,13 +63,12 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.login-btn {
-  width: 40%;
-  margin: 10px 0;
-}
-.register-btn {
-  width: 40%;
-  margin: 10px 0;
-}
+<style lang="stylus" scoped>
+.login-form
+  &__login
+    width: 40%
+    margin: 10px 0
+  &__register
+    width: 40%
+    margin: 10px 0
 </style>

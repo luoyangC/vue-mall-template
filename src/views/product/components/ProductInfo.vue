@@ -1,10 +1,10 @@
 <template>
-  <div class="info">
-    <div class="price">
-      <span class="present">￥{{ info.currentPrice }}</span>
-      <s class="origin">￥{{ info.originalPrice }}</s>
+  <div class="product-info">
+    <div class="product-info__price">
+      <span class="product-info__present">￥{{ info.currentPrice }}</span>
+      <s class="product-info__origin">￥{{ info.originalPrice }}</s>
     </div>
-    <div>{{ info.name }}</div>
+    <div class="product-info__title">{{ info.name }}</div>
   </div>
 </template>
 
@@ -19,24 +19,20 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.info {
-  background: white;
-  padding: 16px;
-  .price {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 8px;
-    .present {
-      color: orangered;
-      font-size: 24px;
-      font-weight: 800;
-    }
-    .origin {
-      margin-left: 8px;
-      color: #999;
-      font-size: 16px;
-    }
-  }
-}
+<style lang="stylus" scoped>
+.product-info
+  background: white
+  padding: 16px
+  &__price
+    display: flex
+    align-items: flex-end
+    margin-bottom: 8px
+  &__present
+    color: orangered
+    font-size: 24px
+    font-weight: 800
+  &__origin
+    margin-left: 8px
+    color: #999
+    font-size: 16px
 </style>

@@ -1,0 +1,50 @@
+bili = #FA7298 // 哔哩
+sakura = #FEDFE1 // 樱花
+aotake = #00896C // 青竹
+asagi = #2EA9DF // 露草
+kikyo = #6A4C9C // 桔梗
+kanzo = #FC9F4D // 萱草
+kuro = #080808 // 墨黑
+
+themes-mixin(theme)
+  .app-tab-bar
+    .van-tabbar-item--active
+      color: theme
+  .app-nav-bar
+    background-color: theme
+    .van-nav-bar__text
+      color: white
+    .van-icon
+      color: white
+    .van-nav-bar__title
+      color: white
+  .search-bar
+    background-color: theme
+    .search-bar__action
+      color: white
+  .cart-top-bar
+    background-color: theme
+    .van-nav-bar__text
+      color white
+  .user-info
+    background-color: theme
+  
+  .van-nav-bar__text:active
+    background-color: theme
+
+
+.theme
+  &--bili
+    themes-mixin(bili)
+  &--sakura
+    themes-mixin(sakura)
+  &--aotake
+    themes-mixin(aotake)
+  &--asagi
+    themes-mixin(asagi)
+  &--kikyo
+    themes-mixin(kikyo)
+  &--kanzo
+    themes-mixin(kanzo)
+  &--kuro
+    themes-mixin(kuro)

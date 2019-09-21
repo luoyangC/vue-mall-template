@@ -1,9 +1,5 @@
 <template>
-  <van-tree-select
-    height="92.5vh"
-    :items="items"
-    :main-active-index.sync="mainActiveIndex"
-  >
+  <van-tree-select :items="categories" :main-active-index.sync="mainActiveIndex" class="sort">
     <template v-slot:content>
       <sort-content :active-id="mainActiveId" />
     </template>
@@ -22,11 +18,11 @@ export default {
   },
   data: () => ({
     mainActiveIndex: 0,
-    items: []
+    categories: []
   }),
   computed: {
     mainActiveId() {
-      if (this.items.length) return this.items[this.mainActiveIndex].id
+      if (this.categories.length) return this.categories[this.mainActiveIndex].id
       return 1
     }
   },
@@ -36,20 +32,20 @@ export default {
   methods: {
     async getCategories() {
       const { data } = await getCategories()
-      const items = data.map(item => ({ text: item.title, id: item.id }))
-      this.items = items
+      const categories = data.map(item => ({ text: item.title, id: item.id }))
+      this.categories = categories
     }
   }
 }
 </script>
 
-<style lang="less" scoped>
-/deep/.van-tree-select__nav-item{
-  height: 58px;
-  line-height: 58px;
-}
-
-/deep/.van-tree-select__content{
-  flex: 3;
-}
+<style lang="stylus" scoped>
+.sort
+  height 92.5vh !important
+  >>>.van-tree-select
+    &__nav-item
+      height: 58px
+      line-height: 58px
+    &__content
+      flex: 3
 </style>

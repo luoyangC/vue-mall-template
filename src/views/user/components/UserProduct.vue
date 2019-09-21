@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <div class="product-title">专属推荐</div>
-    <van-grid class="product-list" :gutter="6" :column-num="3" :border="false">
-      <van-grid-item v-for="product in products" :key="product.id" :to="`/page/product/${product.id}`">
+  <div class="user-product">
+    <div class="user-product__title">专属推荐</div>
+    <van-grid class="user-product__list" :gutter="6" :column-num="3" :border="false">
+      <van-grid-item v-for="product in products" :key="product.id" :to="`/product/${product.id}`">
         <product-card :item="product" />
       </van-grid-item>
     </van-grid>
@@ -34,15 +34,13 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-.product-list{
-  margin-bottom: 58px;
-  background: #fff;
-}
-.product-title{
-  text-align: center;
-  font-size: 14px;
-  color: pink;
-  margin-top: 10px;
-}
+<style lang="stylus" scoped>
+.user-product
+  &__list
+    margin-bottom: 58px
+    background: #fff
+  &__title
+    text-align: center
+    font-size: 14px
+    margin-top: 10px
 </style>

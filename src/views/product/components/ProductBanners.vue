@@ -22,7 +22,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="stylus" scoped>
 .van-swipe-item{
   text-align: center;
   background: white;

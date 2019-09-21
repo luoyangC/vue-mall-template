@@ -1,5 +1,5 @@
 <template>
-  <van-swipe :autoplay="5000" style="height:30vw">
+  <van-swipe :autoplay="5000" class="banner-swipe">
     <van-swipe-item v-for="banner in banners" :key="banner.id">
       <van-image fit="contain" :src="banner.image">
         <template v-slot:loading>
@@ -28,10 +28,12 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-/deep/.van-image__loading {
-  width: 100vw;
-  margin-top: 12vw;
-}
+<style lang="stylus" scoped>
+.banner-swipe
+  height 30vw
+  margin-top 54px
+  >>>.van-image__loading
+    width 100vw
+    margin-top 12vw
 </style>
 
