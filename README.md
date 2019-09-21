@@ -14,7 +14,7 @@
 2. [vuex](https://vuex.vuejs.org/zh/)：官方推荐的前端状态管理库
 3. [axios](https://www.jianshu.com/p/27a5626973e4)：最流行的前端ajax库
 4. [vue-i18n](http://kazupon.github.io/vue-i18n/zh/)：前端国际化插件
-5. [less](http://lesscss.cn/): css预处理库
+5. [stylus](https://www.zhangxinxu.com/jq/stylus/): css预处理库
 6. [vant](https://youzan.github.io/vant/#/zh-CN/intro)：有赞开源的前端移动端UI库（非常适合商城类H5开发）
 7. [mockjs](https://github.com/nuysoft/Mock/wiki)：前端构建mock数据的库（本项目在本地启动了一个mock server）
 
