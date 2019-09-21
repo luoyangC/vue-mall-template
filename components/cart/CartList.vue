@@ -61,7 +61,9 @@ export default {
 
 <style lang="stylus" scoped>
 .cart-list
+  margin-top 46px
   margin-bottom 100px
+  padding-bottom 12px
   .van-card
     background-color transparent
 </style>

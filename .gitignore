@@ -80,7 +80,6 @@ dist
 # IDE / Editor
 .idea
 .editorconfig
-jsconfig.json
 
 # Service worker
 sw.*

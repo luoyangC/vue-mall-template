@@ -4,6 +4,7 @@
     <van-nav-bar
       v-if="isTableNav"
       left-arrow
+      left-text="返回"
       class="app-nav-bar"
       :title="this.$route.meta.title"
       @click-left="onClickLeft"

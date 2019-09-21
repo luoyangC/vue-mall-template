@@ -6,7 +6,6 @@ kikyo = #6A4C9C // 桔梗
 kanzo = #FC9F4D // 萱草
 kuro = #080808 // 墨黑
 
-
 themes-mixin(theme)
   .app-tab-bar
     .van-tabbar-item--active
@@ -17,14 +16,20 @@ themes-mixin(theme)
       color: white
     .van-icon
       color: white
+    .van-nav-bar__title
+      color: white
   .search-bar
     background-color: theme
     .search-bar__action
       color: white
-  .product-tabs
-    .van-tabs__wrap
-      background-color: theme
+  .cart-top-bar
+    background-color: theme
+    .van-nav-bar__text
+      color white
   .user-info
+    background-color: theme
+  
+  .van-nav-bar__text:active
     background-color: theme
 
 

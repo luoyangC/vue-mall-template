@@ -5,7 +5,7 @@
         v-for="item in tags"
         :key="item"
         round
-        class="search-content-history--tag"
+        class="search-content-history__tag"
         @click.stop="$toast(item)"
       >{{ item }}</van-tag>
     </div>
@@ -32,8 +32,8 @@ export default {
 .search-content
   &-history
     padding 8px 16px
-  &-history--tag
-    color #686868
-    background  #f0f2f5
-    margin 2px 8px 2px 0
+    &__tag
+      color #686868
+      background  #f0f2f5
+      margin 2px 8px 2px 0
 </style>
