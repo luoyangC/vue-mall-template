@@ -1,5 +1,9 @@
 const frameIn = [
   {
+    path: '/',
+    redirect: '/home'
+  },
+  {
     path: '/home',
     name: 'home',
     meta: { auth: 0, title: '首页' },
