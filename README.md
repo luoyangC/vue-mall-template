@@ -64,3 +64,7 @@ npm run start
     - store             // Vuex管理目录
     - utils             // 全局工具目录
 ```
+
+## Mock数据
+
+[mock数据项目](https://github.com/luoyangC/mall-mock-server)
