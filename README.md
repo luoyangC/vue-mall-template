@@ -67,3 +67,6 @@ npm run start
     - views             // 页面目录
 ```
 
+## Mock数据
+
+[mock数据项目](https://github.com/luoyangC/mall-mock-server)
