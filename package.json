@@ -29,7 +29,6 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "husky": "^3.0.5",
-    "mockjs": "^1.0.1-beta3",
     "postcss-px-to-viewport": "^1.1.0",
     "style-resources-loader": "^1.2.1",
     "stylus": "^0.54.7",

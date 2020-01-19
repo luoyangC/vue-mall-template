@@ -12,7 +12,7 @@ import { Notify } from 'vant'
 import { getToken } from '@/utils/auth'
 
 const config = {
-  baseURL: 'http://localhost:8080',
+  baseURL: 'http://luoyangc.cn:22330',
   timeout: 60 * 1000
 }
 

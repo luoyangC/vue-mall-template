@@ -34,26 +34,6 @@ module.exports = {
   // 关闭ESLint
   lintOnSave: false,
 
-  devServer: {
-    open: true,
-    overlay: {
-      warnings: false,
-      errors: true
-    },
-    proxy: {
-      // 配置代理服务器
-      [process.env.VUE_APP_BASE_API]: {
-        target: `http://localhost:8080/mock`,
-        changeOrigin: true,
-        pathRewrite: {
-          ['^' + process.env.VUE_APP_BASE_API]: ''
-        }
-      }
-    },
-    // 加载mock服务器
-    after: require('./mock/mock-server.js')
-  },
-
   chainWebpack: config => {
     // 自定义别名
     config.resolve.alias

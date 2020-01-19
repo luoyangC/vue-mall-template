@@ -5,6 +5,8 @@
     "lazyload",
     "mockjs",
     "polyfill",
+    "pxtoviewport",
+    "styl",
     "vant",
     "vuex"
   ]

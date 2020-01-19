@@ -11,11 +11,6 @@ import '@/plugins/axios'
 import '@/plugins/filters'
 import '@/utils/permission.js'
 
-import { mockXHR } from '../mock' // mock 数据
-if (process.env.NODE_ENV === 'production') {
-  mockXHR()
-}
-
 new Vue({
   store,
   i18n,
