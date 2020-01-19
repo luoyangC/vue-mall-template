@@ -1,6 +1,5 @@
 const autoprefixer = require('autoprefixer')
 const pxtoviewport = require('postcss-px-to-viewport')
-const getIPAddress = require('./utils/getIpAddress')
 
 module.exports = {
   mode: 'universal',
@@ -17,10 +16,6 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
-  },
-  env: {
-    PORT: 2233,
-    HOST: getIPAddress()
   },
   /*
   ** Customize the progress-bar color

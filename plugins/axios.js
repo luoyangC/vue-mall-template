@@ -3,10 +3,9 @@ import Api from '@/api'
 
 export default ({ app }, inject) => {
   const axios = app.$axios
-  const { HOST, PORT } = app.context.env
 
   axios.defaults.timeout = 5000
-  axios.defaults.baseURL = `http://${HOST}:${PORT}`
+  axios.defaults.baseURL = 'http://luoyangc.cn:22330'
 
   // 请求拦截
   axios.onRequest(config => {

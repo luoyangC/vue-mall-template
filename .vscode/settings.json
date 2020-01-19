@@ -1,0 +1,23 @@
+{
+  "cSpell.ignoreWords": [
+    "bodyparser",
+    "browserslist",
+    "cnpm",
+    "consola",
+    "dayjs",
+    "devtools",
+    "gitignore",
+    "koa",
+    "koa's",
+    "lazyload",
+    "mixins",
+    "mockjs",
+    "nuxt",
+    "nuxtjs",
+    "polyfill",
+    "pxtoviewport",
+    "styl",
+    "vant",
+    "vuex"
+  ]
+}

@@ -1,8 +1,5 @@
 const Koa = require('koa')
 const consola = require('consola')
-const Router = require('koa-router')
-const parser = require('koa-bodyparser')
-const requireDirectory = require('require-directory')
 const { Nuxt, Builder } = require('nuxt')
 
 const app = new Koa()
@@ -16,17 +13,8 @@ async function start() {
   const nuxt = new Nuxt(config)
 
   // 读取配置文件中的地址
-  const {
-    HOST = config.env.HOST || '127.0.0.1',
-    PORT = config.env.PORT || 3000
-  } = config.env
-
-  app.use(parser()) // 解析body的中间件
-  requireDirectory(module, './mock', { // 加载mock接口
-    visit: (obj) => {
-      if (obj instanceof Router) app.use(obj.routes())
-    }
-  })
+  const HOST = '127.0.0.1'
+  const PORT = 3000
 
   // 判断是否为开发环境
   if (config.dev) {
@@ -43,7 +31,7 @@ async function start() {
     nuxt.render(ctx.req, ctx.res)
   })
 
-  app.listen(PORT, HOST)
+  app.listen(PORT)
   consola.ready({
     message: `Server listening on http://${HOST}:${PORT}`,
     badge: true
