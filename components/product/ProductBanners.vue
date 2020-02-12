@@ -1,7 +1,7 @@
 <template>
   <van-swipe :autoplay="3000">
     <van-swipe-item v-for="banner in banners" :key="banner.id">
-      <van-image height="200" fit="contain" :src="banner.image" />
+      <van-image height="200" fit="cover" :src="banner.image" />
     </van-swipe-item>
   </van-swipe>
 </template>

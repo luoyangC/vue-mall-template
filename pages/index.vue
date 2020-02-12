@@ -28,15 +28,15 @@ export default {
     ProductList
   },
   mixins: [restoreScroll],
+  data: () => ({
+    isLoading: false
+  }),
   asyncData: async({ app }) => { // 初始化数据
     const { data: banners } = await app.$api.getBanners()
     const { data: categories } = await app.$api.getCategories()
     const { data: products, count } = await app.$api.getProducts()
     return { banners, categories, products, count }
   },
-  data: () => ({
-    isLoading: false
-  }),
   methods: {
     async onRefresh() { // 下拉刷新
       const { data, count } = await this.$api.getProducts()

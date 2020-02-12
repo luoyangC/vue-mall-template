@@ -15,11 +15,6 @@ export default {
     [TreeSelect.name]: TreeSelect,
     SortContent
   },
-  asyncData: async({ app }) => {
-    const { data } = await app.$api.getCategories() // 获取一级分类
-    const categories = data.map(item => ({ text: item.title, id: item.id }))
-    return { categories }
-  },
   data: () => ({
     mainActiveIndex: 0 // 选中的一级分类索引
   }),
@@ -28,6 +23,11 @@ export default {
       if (this.categories.length) return this.categories[this.mainActiveIndex].id
       return 1
     }
+  },
+  asyncData: async({ app }) => {
+    const { data } = await app.$api.getCategories() // 获取一级分类
+    const categories = data.map(item => ({ text: item.title, id: item.id }))
+    return { categories }
   }
 }
 </script>

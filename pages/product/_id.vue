@@ -23,6 +23,9 @@ export default {
     ProductAction,
     ProductSku
   },
+  data: () => ({
+    mode: ''
+  }),
   asyncData: async({ app, params }) => {
     const id = parseInt(params.id)
     const { data: product } = await app.$api.getProductInfo(id)
@@ -30,9 +33,6 @@ export default {
       product: product
     }
   },
-  data: () => ({
-    mode: ''
-  }),
   methods: {
     // 开启sku选择
     handleOpenSku(mode) {
