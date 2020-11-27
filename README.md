@@ -26,7 +26,7 @@
 
 ### 展示
 
-点击查看[线上demo](http://luoyangc.cn:2233)
+点击查看[线上demo](http://www.luoyangc.cn:2233)
 
 以下是该项目的一些页面展示
 
